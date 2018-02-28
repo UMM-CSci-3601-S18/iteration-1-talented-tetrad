@@ -1,6 +1,3 @@
-//5 check in times per day, 34 days total of data
-//happy: 31 times, sad: 33 times, scared: 26 times, mad: 26 times, meh: 27 times, disgusted: 26 times
-
 [{ "_id" : { "$oid" : "58af3a590343927e48e87205" }, "emotion" : "scared", "time" : 830, "day" : 25, "month": 2, "year":2018},
     { "_id" : { "$oid" : "58af3a590343927e48e87206" }, "emotion" : "mad", "time" : 1030, "day" : 25, "month": 2, "year":2018},
     { "_id" : { "$oid" : "58af3a590343927e48e87207" }, "emotion" : "meh", "time" : 1200, "day" : 25, "month": 2, "year":2018},
