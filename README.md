@@ -68,6 +68,10 @@ need to have data in the `dev` database before running the e2e tests!
 
 Turn on your repo in [Travis CI][travis], replace the build status image in this README, and push your changes. That will trigger a build with Travis.
 
+##Database
+The emotions.seed.json dataset contains:
+* 5 check in times per day, 34 days total of data
+* happy: 31 times, sad: 33 times, scared: 26 times, mad: 26 times, meh: 27 times, disgusted: 26 times
 ## Resources
 
 ### Angular 5
