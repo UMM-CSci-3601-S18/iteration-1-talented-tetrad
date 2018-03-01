@@ -1,3 +1,4 @@
+/*
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 
@@ -24,7 +25,7 @@ export class UserListService {
         return this.http.get<User>(this.userUrl + '/' + id);
     }
 
-    /*
+    /!*
     //This method looks lovely and is more compact, but it does not clear previous searches appropriately.
     //It might be worth updating it, but it is currently commented out since it is not used (to make that clear)
     getUsersByCompany(userCompany?: string): Observable<User> {
@@ -32,7 +33,7 @@ export class UserListService {
         console.log("The url is: " + this.userUrl);
         return this.http.request(this.userUrl).map(res => res.json());
     }
-    */
+    *!/
 
     filterByCompany(userCompany?: string): void {
         if (!(userCompany == null || userCompany === '')) {
@@ -87,3 +88,4 @@ export class UserListService {
         return this.http.post<{'$oid': string}>(this.userUrl + '/new', newUser, httpOptions);
     }
 }
+*/
