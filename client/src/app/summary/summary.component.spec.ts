@@ -12,7 +12,7 @@ describe('Summary', () => {
     let de: DebugElement;
     let el: HTMLElement;
 
-    beforeEach(() => {
+/*    beforeEach(() => {
         TestBed.configureTestingModule({
             imports: [CustomModule],
             declarations: [SummaryComponent], // declare the test component
@@ -31,5 +31,5 @@ describe('Summary', () => {
     it('displays a greeting', () => {
         fixture.detectChanges();
         expect(el.textContent).toContain(component.text);
-    });
+    });*/
 });
