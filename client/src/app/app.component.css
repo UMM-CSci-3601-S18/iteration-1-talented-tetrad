@@ -4,8 +4,9 @@ td-layout-nav {
     background-color: #1d285e;
 }
 
-/*Changes the nav-sidebar popout thing to match the navbar's color (light blue)*/
+/*Changes the nav-sidebar popout thing to match the navbar's color (light blue)p*/
 [_nghost-c2] {
     background-color: #2bb5ff;
 }
 
+/*Comment to let us tag the issue before pushing :) */
