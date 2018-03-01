@@ -12,7 +12,7 @@ describe('Summary', () => {
     let de: DebugElement;
     let el: HTMLElement;
 
-/*    beforeEach(() => {
+   beforeEach(() => {
         TestBed.configureTestingModule({
             imports: [CustomModule],
             declarations: [SummaryComponent], // declare the test component
@@ -24,12 +24,12 @@ describe('Summary', () => {
         component = fixture.componentInstance; // BannerComponent test instance
 
         // query for the title <h1> by CSS element selector
-        de = fixture.debugElement.query(By.css('#hello-world'));
+        de = fixture.debugElement.query(By.css('#summary-title'));
         el = de.nativeElement;
     });
 
     it('displays a greeting', () => {
         fixture.detectChanges();
-        expect(el.textContent).toContain(component.text);
-    });*/
+        expect(el.textContent).toContain("Summary");
+    });
 });
