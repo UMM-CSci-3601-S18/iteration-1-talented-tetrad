@@ -6,7 +6,7 @@ import { MATERIAL_COMPATIBILITY_MODE } from '@angular/material';
 
 import {HttpClientModule} from '@angular/common/http';
 import {AppComponent} from './app.component';
-import {HomeComponent} from './home/home.component';
+import {HomeComponent, HomeComponentDialog} from './home/home.component';
 //import {UserListComponent} from './users/user-list.component';
 //import {UserListService} from './users/user-list.service';
 import {Routing} from './app.routes';
@@ -26,6 +26,7 @@ import {CustomModule} from './custom.module';
     declarations: [
         AppComponent,
         HomeComponent,
+        HomeComponentDialog,
         //UserListComponent,
         //AddUserComponent
     ],
