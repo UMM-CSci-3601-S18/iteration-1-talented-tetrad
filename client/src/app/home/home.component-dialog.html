@@ -1,7 +1,4 @@
-<h1 mat-dialog-title>Emoji Select</h1>
-<div mat-dialog-content>
-    <p>How are you feeling today?</p>
-</div>
+<h1 mat-dialog-title>How are you feeling today?</h1>
 
 <div mat-dialog-actions>
     <button mat-button (click)="onNoClick()" matTooltip="Radiant">😊</button>
@@ -10,12 +7,5 @@
     <button mat-button (click)="onNoClick()" matTooltip="Melancholy">😔</button>
     <button mat-button (click)="onNoClick()" matTooltip="Down">☹️</button>
     <button mat-button (click)="onNoClick()" matTooltip="Anxious">😬</button>
-    <button mat-button [mat-dialog-close]="data.response" cdkFocusInitial>Ok</button>
-</div>
-
-<div mat-dialog-content>
-    <p>Care to tell us why?</p>
-    <mat-form-field>
-        <input matInput [(ngModel)]="data.response">
-    </mat-form-field>
+    <button mat-button mat-dialog-close>Submit</button>
 </div>
