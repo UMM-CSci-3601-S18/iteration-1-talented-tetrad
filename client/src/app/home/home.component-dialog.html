@@ -1,11 +1,13 @@
-<h1 mat-dialog-title>How are you feeling today?</h1>
+<mat-card-title>How are you feeling today?</mat-card-title>
+<mat-divider></mat-divider>
 
-<div mat-dialog-actions>
-    <button mat-button (click)="onNoClick()" matTooltip="Radiant">😊</button>
-    <button mat-button (click)="onNoClick()" matTooltip="Happy">🙂</button>
-    <button mat-button (click)="onNoClick()" matTooltip="Meh">😐</button>
-    <button mat-button (click)="onNoClick()" matTooltip="Melancholy">😔</button>
-    <button mat-button (click)="onNoClick()" matTooltip="Down">☹️</button>
-    <button mat-button (click)="onNoClick()" matTooltip="Anxious">😬</button>
-    <button mat-button mat-dialog-close>Submit</button>
+<div mat-dialog-actions class="emoji-buttons">
+    <button mat-fab class="emojiRadiant" (click)="onNoClick()" matTooltip="Radiant"></button>
+    <button mat-fab class="emojiHappy" (click)="onNoClick()" matTooltip="Happy"></button>
+    <button mat-fab class="emojiMeh" (click)="onNoClick()" matTooltip="Meh"></button>
+    <button mat-fab class="emojiDown" (click)="onNoClick()" matTooltip="Down"></button>
+    <button mat-fab class="emojiSad" (click)="onNoClick()" matTooltip="Sad"></button>
+    <button mat-fab class="emojiAnxious" (click)="onNoClick()" matTooltip="Anxious"></button>
 </div>
+
+

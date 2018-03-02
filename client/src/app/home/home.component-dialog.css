@@ -1,0 +1,61 @@
+/*
+
+To you all who know how to do this better, please don't be afraid to fix any of this.
+Somethings I would still want are that everything should attempt to be centered 'modularly', which I am struggling on.
+
+*/
+
+
+.emojiRadiant {
+    background: url(emoji/emoji-radiant.svg) no-repeat top left;
+    background-size: contain;
+    cursor: pointer;
+    display: inline-block;
+    height: 128px;
+    width: 128px;
+}
+
+.emojiHappy {
+    background: url(emoji/emoji-happy.svg) no-repeat top left;
+    background-size: contain;
+    cursor: pointer;
+    display: inline-block;
+    height: 128px;
+    width: 128px;
+}
+
+.emojiMeh {
+    background: url(emoji/emoji-meh.svg) no-repeat top left;
+    background-size: contain;
+    cursor: pointer;
+    display: inline-block;
+    height: 128px;
+    width: 128px;
+}
+
+.emojiDown {
+    background: url(emoji/emoji-down.svg) no-repeat top left;
+    background-size: contain;
+    cursor: pointer;
+    display: inline-block;
+    height: 128px;
+    width: 128px;
+}
+
+.emojiSad {
+    background: url(emoji/emoji-sad.svg) no-repeat top left;
+    background-size: contain;
+    cursor: pointer;
+    display: inline-block;
+    height: 128px;
+    width: 128px;
+}
+
+.emojiAnxious {
+    background: url(emoji/emoji-anxious.svg) no-repeat top left;
+    background-size: contain;
+    cursor: pointer;
+    display: inline-block;
+    height: 128px;
+    width: 128px;
+}

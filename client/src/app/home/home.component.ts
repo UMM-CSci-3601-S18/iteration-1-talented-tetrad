@@ -13,7 +13,7 @@ export class HomeComponent {
 
     openDialog() {
         this.dialog.open(HomeComponentDialog, {
-            width: '50vw',
+            width: '70vw',
             height: '50vh',
         });
     }
@@ -22,6 +22,7 @@ export class HomeComponent {
 @Component({
     selector: 'home.component-dialog',
     templateUrl: 'home.component-dialog.html',
+    styleUrls: ['home.component-dialog.css'],
 })
 export class HomeComponentDialog {
     constructor(@Inject(MAT_DIALOG_DATA) public data: any) {}
