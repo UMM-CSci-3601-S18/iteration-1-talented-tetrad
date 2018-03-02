@@ -8,3 +8,9 @@
 .nav-active mat-icon {
     color: mat-color($accent) !important;
 }
+
+/* modifies the top small portion of the side navbar */
+[_nghost-c2] mat-toolbar[_ngcontent-c2] {
+    background: #78909C;
+    color: white;
+}
