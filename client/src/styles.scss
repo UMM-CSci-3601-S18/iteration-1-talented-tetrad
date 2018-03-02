@@ -14,3 +14,16 @@
     background: #78909C;
     color: white;
 }
+
+/* for modifying whatever is around text in top left of side navbar */
+body .md-subhead {
+    font-size: 32px;
+
+}
+
+/* this is for modifying whats behind the navbar..
+   it has been used to fix the white corners that appear
+   after setting a border radius in app.component.css */
+[_nghost-c1] > mat-sidenav-container > mat-sidenav {
+    background: #7E57C2;
+}
