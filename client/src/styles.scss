@@ -27,3 +27,11 @@ body .md-subhead {
 [_nghost-c1] > mat-sidenav-container > mat-sidenav {
     background: #7E57C2;
 }
+
+/* for modifying the text in the top bar next to the three horizontal bars
+   used for opening side navbar*/
+[layout-align="start center"] > *, [layout-align="center center"] > *,
+[layout-align="end center"] > *, [layout-align="space-between center"] > *,
+[layout-align="space-around center"] > * {
+    color: black;
+}
