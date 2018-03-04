@@ -4,26 +4,33 @@
             <mat-card-title id="summary-list-title">Summarys</mat-card-title>
             <form>
                 <!--# The Angular feature-->
-                <label> Status:</label>
-                <select name="dropdown" id="summaryEmotion" #input placeholder="Filter by emotion" (input)="summaryEmotion = $event.target.value">
-                    <option value="">All</option>
-                    <option value="radiant">Radiant</option>
-                    <option value="happy">Happy</option>
-                    <option value="meh">Meh</option>
-                    <option value="down">Down</option>
-                    <option value="sad">Sad</option>
-                    <option value="anxious">Anxious</option>
+                <label> Emotion:</label>
+                <select name="dropdown" id="summaryEmotion" #input placeholder="Filter by Emotion" (input)="summaryEmotion = $event.target.value">
+                    <option value="">All Emotions</option>
+                    <option value="Radiant">Radiant</option>
+                    <option value="Happy">Happy</option>
+                    <option value="Meh">Meh</option>
+                    <option value="Down">Down</option>
+                    <option value="Sad">Sad</option>
+                    <option value="Anxious">Anxious</option>
                 </select>
             </form>
 
             <mat-divider></mat-divider>
-            Total Number of Entries: {{totalNumberEntries()}}<br>
+            <div *ngFor="let summary of this.filterSummarys(summaryEmotion)">
+                {{aveTime(summaryEmotion, summary.time)}}
+            </div>
+
+            Total Number of {{summaryEmotion}} Entries: {{totalNumberEmotions(summaryEmotion)}}<br>
+            {{returnTime(summaryEmotion)}}
+
+           <!-- Total Number of Entries: {{totalNumberEntries()}}<br>
+            Total Number of Radiant Entries: {{totalNumberEmotions("radiant")}}<br>
             Total Number of Happy Entries: {{totalNumberEmotions("happy")}}<br>
-            Total Number of Sad Entries: {{totalNumberEmotions("sad")}}<br>
-            Total Number of Scared Entries: {{totalNumberEmotions("scared")}}<br>
-            Total Number of Mad Entries: {{totalNumberEmotions("mad")}}<br>
             Total Number of Meh Entries: {{totalNumberEmotions("meh")}}<br>
-            Total Number of Disgusted Entries: {{totalNumberEmotions("disgusted")}}<br>
+            Total Number of Down Entries: {{totalNumberEmotions("down")}}<br>
+            Total Number of Sad Entries: {{totalNumberEmotions("sad")}}<br>
+            Total Number of Anxious Entries: {{totalNumberEmotions("anxious")}}<br>-->
                 <mat-accordion *ngIf="summarys; else summarysError" >
                 </mat-accordion>
                 <ng-template #summarysError>

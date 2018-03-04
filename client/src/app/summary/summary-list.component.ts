@@ -11,6 +11,10 @@ import {MatDialog} from '@angular/material';
 })
 
 export class SummaryListComponent implements OnInit {
+    private setEmotion: string;
+    private morning = 0;
+    private afternoon = 0;
+    private night = 0;
     // These are public so that tests can reference them (.spec.ts)
     public summarys: Summary[];
     public filteredSummarys: Summary[];
@@ -89,12 +93,52 @@ export class SummaryListComponent implements OnInit {
 
     totalNumberEmotions(emotion: string): number{
         this.filteredSummarys = this.summarys;
-        this.filteredSummarys = this.filteredSummarys.filter(summary => {
-            return !emotion || summary.emotion.toLowerCase().indexOf(emotion) !== -1;
-        });
+        this.filteredSummarys = this.filteredSummarys.filter(summary=>{
+            return !emotion || emotion.toLowerCase().indexOf(summary.emotion) !== -1;
+        })
+
         return this.filteredSummarys.length;
     }
 
+    aveTime(emotion: string, time: number){
+        if(emotion != this.setEmotion){
+            this.resetNums()
+            this.setEmotion = emotion;
+        }
+
+        if(time >= 600 && time <= 1100){
+            this.morning++;
+        }
+        else if(time >= 1101 && time <= 1600){
+            this.afternoon++;
+        }
+        else{
+            this.night++;
+        }
+    }
+
+    returnTime(emotion: string): string{
+        if(emotion == ""){
+            return "";
+        }
+
+        if(this.morning > this.afternoon && this.morning > this.night){
+            return "You usually feel this way in the morning";
+        }
+
+        else if (this.afternoon > this.morning && this.afternoon > this.night){
+            return "You usually feel this way in the afternoon";
+        }
+        else{
+            return "You usually feel this way at night";
+        }
+    }
+
+    resetNums(){
+        this.morning = 0;
+        this.afternoon = 0;
+        this.night = 0;
+    }
 
     ngOnInit(): void {
         this.refreshSummarys();
