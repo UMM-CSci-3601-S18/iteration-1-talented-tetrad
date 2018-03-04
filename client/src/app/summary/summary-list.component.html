@@ -2,6 +2,20 @@
     <div flex-gt-sm="80" flex-offset-gt-sm="10">
         <mat-card>
             <mat-card-title id="summary-list-title">Summarys</mat-card-title>
+            <form>
+                <!--# The Angular feature-->
+                <label> Status:</label>
+                <select name="dropdown" id="summaryEmotion" #input placeholder="Filter by emotion" (input)="summaryEmotion = $event.target.value">
+                    <option value="">All</option>
+                    <option value="radiant">Radiant</option>
+                    <option value="happy">Happy</option>
+                    <option value="meh">Meh</option>
+                    <option value="down">Down</option>
+                    <option value="sad">Sad</option>
+                    <option value="anxious">Anxious</option>
+                </select>
+            </form>
+
             <mat-divider></mat-divider>
             Total Number of Entries: {{totalNumberEntries()}}<br>
             Total Number of Happy Entries: {{totalNumberEmotions("happy")}}<br>
