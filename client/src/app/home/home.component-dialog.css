@@ -5,7 +5,6 @@ Somethings I would still want are that everything should attempt to be centered 
 
 */
 
-
 .emojiRadiant {
     background: url(emoji/emoji-radiant.svg) no-repeat top left;
     background-size: contain;
@@ -13,6 +12,7 @@ Somethings I would still want are that everything should attempt to be centered 
     display: inline-block;
     height: 128px;
     width: 128px;
+    margin: auto;
 }
 
 .emojiHappy {
@@ -22,6 +22,7 @@ Somethings I would still want are that everything should attempt to be centered 
     display: inline-block;
     height: 128px;
     width: 128px;
+    margin: auto;
 }
 
 .emojiMeh {
@@ -31,6 +32,7 @@ Somethings I would still want are that everything should attempt to be centered 
     display: inline-block;
     height: 128px;
     width: 128px;
+    margin: auto;
 }
 
 .emojiDown {
@@ -40,6 +42,7 @@ Somethings I would still want are that everything should attempt to be centered 
     display: inline-block;
     height: 128px;
     width: 128px;
+    margin: auto;
 }
 
 .emojiSad {
@@ -49,6 +52,7 @@ Somethings I would still want are that everything should attempt to be centered 
     display: inline-block;
     height: 128px;
     width: 128px;
+    margin: auto;
 }
 
 .emojiAnxious {
@@ -58,4 +62,6 @@ Somethings I would still want are that everything should attempt to be centered 
     display: inline-block;
     height: 128px;
     width: 128px;
+    margin: auto;
 }
+
