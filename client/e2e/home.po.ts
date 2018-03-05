@@ -1,9 +1,9 @@
 import {browser, element, by, promise} from 'protractor';
 import {Key} from 'selenium-webdriver';
 
-export class homePage {
+export class HomePage {
     static navigateTo(): promise.Promise<any> {
-        return browser.get('/');
+        return browser.get('');
     }
 
     static backspace() {

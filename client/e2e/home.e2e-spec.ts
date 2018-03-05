@@ -1,4 +1,4 @@
-import {homePage} from './home.po';
+import {HomePage} from './home.po';
 import {browser, protractor, element, by} from 'protractor';
 import {Key} from 'selenium-webdriver';
 
@@ -20,10 +20,10 @@ import {Key} from 'selenium-webdriver';
 
 /*
 describe('Homepage', () => {
-    let page: homePage;
+    let page: HomePage;
 
     beforeEach(() => {
-        page = new homePage();
+        page = new HomePage();
     });
 
 

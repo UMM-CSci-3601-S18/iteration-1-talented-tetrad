@@ -1,6 +1,8 @@
+/*
 import {browser, element, by, promise} from 'protractor';
 import {Key} from 'selenium-webdriver';
-
+*/
+/*
 export class UserPage {
     static navigateTo(): promise.Promise<any> {
         return browser.get('/users');
@@ -83,3 +85,4 @@ export class UserPage {
     }
 
 }
+*/
