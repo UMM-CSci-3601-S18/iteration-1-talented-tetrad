@@ -118,7 +118,7 @@ export class SummaryListComponent implements OnInit {
     }
 
     returnTime(emotion: string): string{
-        if(emotion == ""){
+        if(emotion == "All"){
             return "";
         }
 
