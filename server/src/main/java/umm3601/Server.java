@@ -6,6 +6,8 @@ import spark.Request;
 import spark.Response;
 import umm3601.summary.SummaryController;
 import umm3601.summary.SummaryRequestHandler;
+import umm3601.emotion.EmotionController;
+import umm3601.emotion.EmotionRequestHandler;
 
 import java.io.IOException;
 
@@ -24,6 +26,9 @@ public class Server {
 
         SummaryController summaryController = new SummaryController(database);
         SummaryRequestHandler summaryRequestHandler = new SummaryRequestHandler(summaryController);
+
+        EmotionController emotionController = new EmotionController(database);
+        EmotionRequestHandler emotionRequestHandler = new EmotionRequestHandler(emotionController);
 
         //Configure Spark
         port(serverPort);
@@ -66,6 +71,8 @@ public class Server {
         get("api/summarys", summaryRequestHandler::getSummarys);
         //get("api/users/:id", userRequestHandler::getUserJSON);
         //post("api/users/new", userRequestHandler::addNewUser);
+
+        post("api/new", emotionRequestHandler::addNewEmotion);
 
         // An example of throwing an unhandled exception so you can see how the
         // Java Spark debugger displays errors like this.
