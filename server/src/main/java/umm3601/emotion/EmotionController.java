@@ -23,6 +23,20 @@ public class EmotionController {
         emotionCollection = database.getCollection("summarys");
     }
 
+    public String getEmotion(String id) {
+        FindIterable<Document> jsonEmotions
+            = emotionCollection
+            .find(eq("_id", new ObjectId(id)));
+        Iterator<Document> iterator = jsonEmotions.iterator();
+        if (iterator.hasNext()) {
+            Document emotion = iterator.next();
+            return emotion.toJson();
+        } else {
+            // We didn't find the desired emotion
+            return null;
+        }
+    }
+
     public String addNewEmotion(String mood, String time, String day, String month, String year) {
         Document newEmotion = new Document();
         newEmotion.append("mood", mood);

@@ -72,7 +72,7 @@ public class Server {
         //get("api/users/:id", userRequestHandler::getUserJSON);
         //post("api/users/new", userRequestHandler::addNewUser);
 
-        post("api/new", emotionRequestHandler::addNewEmotion);
+        post("api/emotions/new", emotionRequestHandler::addNewEmotion);
 
         // An example of throwing an unhandled exception so you can see how the
         // Java Spark debugger displays errors like this.

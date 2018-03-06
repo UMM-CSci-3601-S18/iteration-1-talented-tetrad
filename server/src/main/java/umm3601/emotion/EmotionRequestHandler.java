@@ -13,6 +13,27 @@ public class EmotionRequestHandler {
         this.emotionController = emotionController;
     }
 
+    public String getEmotionJSON(Request req, Response res){
+        res.type("application/json");
+        String id = req.params("id");
+        String emotion;
+        try {
+            emotion = emotionController.getEmotion(id);
+        } catch (IllegalArgumentException e) {
+            res.status(400);
+            res.body("The requested emotion id " + id + " wasn't a legal Mongo Object ID.\n" +
+                "See 'https://docs.mongodb.com/manual/reference/method/ObjectId/' for more info.");
+            return "";
+        }
+        if (emotion != null) {
+            return emotion;
+        } else {
+            res.status(404);
+            res.body("The requested emotion with id " + id + " was not found");
+            return "";
+        }
+    }
+
     public String addNewEmotion(Request req, Response res)
     {
         res.type("application/json");
