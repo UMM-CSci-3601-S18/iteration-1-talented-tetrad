@@ -13,7 +13,7 @@ export class SummaryPage {
     }
 
     // http://www.assertselenium.com/protractor/highlight-elements-during-your-protractor-test-run/
-  /*  highlightElement(byObject) {
+   /* highlightElement(byObject) {
         function setStyle(element, style) {
             const previous = element.getAttribute('style');
             element.setAttribute('style', style);
@@ -26,8 +26,7 @@ export class SummaryPage {
         return browser.executeScript(setStyle, element(byObject).getWebElement(), 'color: red; background-color: yellow;');
     }
 */
-  /*
-     buttonExists(): promise.Promise<boolean> {
+     /*buttonExists(): promise.Promise<boolean> {
         this.highlightElement(by.id('selectEmoji'));
         return element(by.id('selectEmoji')).isPresent();
     }
