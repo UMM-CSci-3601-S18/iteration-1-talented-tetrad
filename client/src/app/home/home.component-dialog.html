@@ -4,7 +4,7 @@
 <mat-divider></mat-divider>
 
 <div mat-dialog-actions class="emoji-buttons">
-    <button mat-fab class="emojiRadiant" data-ng-click="data.emotion.mood = 'Radiant'; closeDialog()" matTooltip="Radiant"></button>
+    <button mat-fab class="emojiRadiant" data-ng-click="data.emotion.mood = 'Radiant'" (click)="onNoClick()" matTooltip="Radiant"></button>
     <button mat-fab class="emojiHappy" (click)="onNoClick()" matTooltip="Happy"></button>
     <button mat-fab class="emojiMeh" (click)="onNoClick()" matTooltip="Meh"></button>
     <button mat-fab class="emojiDown" (click)="onNoClick()" matTooltip="Down"></button>

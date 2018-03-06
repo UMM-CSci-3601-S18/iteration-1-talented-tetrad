@@ -5,6 +5,7 @@ import {Emotion} from './emotion';
 @Component({
     selector: 'home.component-dialog',
     templateUrl: 'home.component-dialog.html',
+    styleUrls: ['./home.component-dialog.css']
 })
 export class AddEmotionComponent {
     constructor(
