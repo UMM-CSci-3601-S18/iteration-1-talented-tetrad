@@ -1,0 +1,68 @@
+<div layout-gt-sm="row">
+    <div flex-gt-sm="80" flex-offset-gt-sm="10">
+        <mat-card>
+            <mat-card-title id="summary-list-title">Summarys</mat-card-title>
+            <form>
+                <!--# The Angular feature-->
+                <label> Emotion:</label>
+                <select name="dropdown" id="summaryEmotion" #input placeholder="Filter by Emotion" (input)="summaryEmotion = $event.target.value">
+                    <option selected value="All" >All Emotions</option>
+                    <option value="Radiant">Radiant</option>
+                    <option value="Happy">Happy</option>
+                    <option value="Meh">Meh</option>
+                    <option value="Down">Down</option>
+                    <option value="Sad">Sad</option>
+                    <option value="Anxious">Anxious</option>
+                </select>
+            </form>
+            <!--<material-datepicker [(ngModel)]="yourModelDate"></material-datepicker>-->
+            <form>
+                <!--# The Angular feature-->
+                <label> Select Start Date:</label>
+                <select name="dropdown" id="calendarSelection" #input placeholder="Month" (input)="calendarSelection = $event.target.value">
+                    <option value="" selected disabled ></option>
+                    <option value="1">1</option>
+                    <option value="1">2</option>
+                    <option value="1">3</option>
+                    <option value="1">4</option>
+                    <option value="1">5</option>
+                    <option value="1">6</option>
+                    <option value="1">7</option>
+                    <option value="1">1</option>
+                    <option value="1">1</option>
+                    <option value="1">1</option>
+                    <option value="1">1</option>
+                    <option value="1">1</option>
+                </select>
+            </form>
+            <br>
+
+            <mat-divider></mat-divider>
+            <div *ngFor="let summary of this.filterSummarys(summaryEmotion)">
+                {{aveTime(summaryEmotion, summary.time)}}
+            </div>
+
+            Total Number of {{summaryEmotion}} Entries: {{totalNumberEmotions(summaryEmotion)}}<br>
+            {{returnTime(summaryEmotion)}}<br>
+
+            <!--Total Number of Entries: {{totalNumberEntries()}}<br>
+            Total Number of Radiant Entries: {{totalNumberEmotions("radiant")}}<br>
+            Total Number of Happy Entries: {{totalNumberEmotions("happy")}}<br>
+            Total Number of Meh Entries: {{totalNumberEmotions("meh")}}<br>
+            Total Number of Down Entries: {{totalNumberEmotions("down")}}<br>
+            Total Number of Sad Entries: {{totalNumberEmotions("sad")}}<br>
+            Total Number of Anxious Entries: {{totalNumberEmotions("anxious")}}<br>-->
+                <mat-accordion *ngIf="summarys; else summarysError" >
+                </mat-accordion>
+                <ng-template #summarysError>
+                    <mat-error>
+                        There was a problem loading the users. Possibly the server is down or perhaps there are network
+                        issues.
+                    </mat-error>
+                    <mat-error>
+                        Please wait a bit and try again or start the server.
+                    </mat-error>
+                </ng-template>
+        </mat-card>
+    </div>
+</div>

@@ -4,8 +4,8 @@ import com.mongodb.MongoClient;
 import com.mongodb.client.MongoDatabase;
 import spark.Request;
 import spark.Response;
-//import umm3601.user.UserController;
-//import umm3601.user.UserRequestHandler;
+import umm3601.summary.SummaryController;
+import umm3601.summary.SummaryRequestHandler;
 
 import java.io.IOException;
 
@@ -22,8 +22,8 @@ public class Server {
         MongoClient mongoClient = new MongoClient();
         MongoDatabase database = mongoClient.getDatabase(databaseName);
 
-        //UserController userController = new UserController(userDatabase);
-        //UserRequestHandler userRequestHandler = new UserRequestHandler(userController);
+        SummaryController summaryController = new SummaryController(database);
+        SummaryRequestHandler summaryRequestHandler = new SummaryRequestHandler(summaryController);
 
         //Configure Spark
         port(serverPort);
@@ -63,7 +63,7 @@ public class Server {
 
         //List users, filtered using query parameters
 
-        //get("api/users", userRequestHandler::getUsers);
+        get("api/summarys", summaryRequestHandler::getSummarys);
         //get("api/users/:id", userRequestHandler::getUserJSON);
         //post("api/users/new", userRequestHandler::addNewUser);
 
