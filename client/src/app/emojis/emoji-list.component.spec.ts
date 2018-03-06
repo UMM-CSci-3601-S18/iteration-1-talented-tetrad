@@ -1,3 +1,4 @@
+/*
 import {ComponentFixture, TestBed, async} from '@angular/core/testing';
 import {Emoji} from './emoji';
 import {EmojiListComponent} from './emoji-list.component';
@@ -84,7 +85,7 @@ describe('Emoji list', () => {
             expect(emojiList.filteredEmojis.length).toBe(2);
         });
     });
-    /*
+    /!*
         it('user list filters by age', () => {
             expect(userList.filteredUsers.length).toBe(3);
             userList.userAge = 37;
@@ -103,7 +104,7 @@ describe('Emoji list', () => {
         });
 
     });
-    */
+    *!/
 
     describe('Misbehaving Emoji List', () => {
         let emojiList: EmojiListComponent;
@@ -212,3 +213,4 @@ describe('Emoji list', () => {
     });
 
 });
+*/

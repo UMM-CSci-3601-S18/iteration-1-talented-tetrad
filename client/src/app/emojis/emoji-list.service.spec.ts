@@ -1,3 +1,4 @@
+/*
 import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
 import {TestBed} from '@angular/core/testing';
 import {HttpClient} from '@angular/common/http';
@@ -80,7 +81,7 @@ describe('Emoji list service: ', () => {
         expect(req.request.method).toEqual('GET');
         req.flush(mEmojis);
     });
-/*
+/!*
     it('filterByCompany(userCompany) deals appropriately with a URL that already had a company', () => {
         currentlyImpossibleToGenerateSearchUserUrl = userListService.baseUrl + '?company=f&something=k&';
         userListService['userUrl'] = currentlyImpossibleToGenerateSearchUserUrl;
@@ -101,7 +102,7 @@ describe('Emoji list service: ', () => {
         userListService.filterByCompany('');
         expect(userListService['userUrl']).toEqual(userListService.baseUrl + '');
     });
-*/
+*!/
     it('getEmojiByEmotion() calls api/emojis/id', () => {
         const targetEmoji: Emoji = testEmojis[1];
         const targetId: string = targetEmoji.emotion;
@@ -114,7 +115,7 @@ describe('Emoji list service: ', () => {
         expect(req.request.method).toEqual('GET');
         req.flush(targetEmoji);
     });
-/*
+/!*
     it('adding a user calls api/users/new', () => {
         const jesse_id = { '$oid': 'jesse_id' };
         const newUser: User = {
@@ -136,6 +137,7 @@ describe('Emoji list service: ', () => {
         expect(req.request.method).toEqual('POST');
         req.flush(jesse_id);
     });
-    */
+    *!/
 });
 
+*/
