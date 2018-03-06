@@ -4,6 +4,7 @@ import {MatDialog, MAT_DIALOG_DATA} from '@angular/material';
 /**
  * @title Injecting data when opening a dialog
  */
+
 @Component({
     selector: 'home.component',
     templateUrl: 'home.component.html',
@@ -27,3 +28,4 @@ export class HomeComponent {
 export class HomeComponentDialog {
     constructor(@Inject(MAT_DIALOG_DATA) public data: any) {}
 }
+

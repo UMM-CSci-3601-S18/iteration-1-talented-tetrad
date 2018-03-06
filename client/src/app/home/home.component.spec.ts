@@ -6,7 +6,7 @@ import {By} from '@angular/platform-browser';
 import {CustomModule} from '../custom.module';
 import {MATERIAL_COMPATIBILITY_MODE} from '@angular/material';
 
-describe('Home', () => {
+describe('Home', () => {emojis
 
     let component: HomeComponent;
     let fixture: ComponentFixture<HomeComponent>;
@@ -33,5 +33,6 @@ describe('Home', () => {
         fixture.detectChanges();
         expect(el.textContent).toContain(component.text);
     });*/
+
 });
 

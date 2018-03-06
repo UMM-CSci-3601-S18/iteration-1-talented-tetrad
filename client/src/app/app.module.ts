@@ -10,6 +10,9 @@ import {SummaryComponent} from './summary/summary.component';
 import {HomeComponent, HomeComponentDialog} from './home/home.component';
 //import {UserListComponent} from './users/user-list.component';
 //import {UserListService} from './users/user-list.service';
+import {EmojiListComponent} from './emojis/emoji-list.component';
+import {EmojiListService} from './emojis/emoji-list.service';
+import {AddEmojiComponent} from "./emojis/add-emoji.component";
 import {Routing} from './app.routes';
 import {APP_BASE_HREF} from '@angular/common';
 
@@ -28,17 +31,23 @@ import {CustomModule} from './custom.module';
         AppComponent,
         HomeComponent,
         HomeComponentDialog,
-        SummaryComponent
+        SummaryComponent,
+        EmojiListComponent,
+        AddEmojiComponent
         //UserListComponent,
         //AddUserComponent
     ],
     providers: [
         //UserListService,
         {provide: APP_BASE_HREF, useValue: '/'},
+        {provide: MATERIAL_COMPATIBILITY_MODE, useValue: true},
+        EmojiListService,
+        {provide: APP_BASE_HREF, useValue: '/'},
         {provide: MATERIAL_COMPATIBILITY_MODE, useValue: true}
     ],
     entryComponents: [
       //AddUserComponent,
+        AddEmojiComponent
     ],
     bootstrap: [AppComponent]
 })
