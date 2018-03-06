@@ -1,4 +1,4 @@
-import {HomePage} from './home.po';
+import {SummaryPage} from './summary.po';
 import {browser, protractor, element, by} from 'protractor';
 import {Key} from 'selenium-webdriver';
 
