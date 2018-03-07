@@ -101,9 +101,7 @@ describe('angular-spark-lab', () => {
     it('should click on menu button then summary tab ', () => {
         AppPage.navigateTo();
         page.clickMenuButton();
-        element(by.id('summaryButton'));
+        element(by.id('summaryButton')).click();
     });
-
-
 
 });
