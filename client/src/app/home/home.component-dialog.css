@@ -67,6 +67,10 @@
 #confirmAddEmotionButton {
     color: black;
     background-color: dodgerblue;
-    margin-top: 6%;
+    display: block;
+    width: 10%;
+    text-align: center;
+    margin:0 auto;
+    margin-top: 3%;
 
 }
