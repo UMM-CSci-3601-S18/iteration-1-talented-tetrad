@@ -5,7 +5,6 @@
     I'm feeling {{data.emotion.mood}}
 </mat-card-title>
 
-
 <div mat-dialog-actions class="emoji-buttons">
     <button mat-fab class="emojiRadiant" (click)="data.emotion.mood = 'Radiant'; data.emotion.date = getDate()" matTooltip="Radiant"></button>
     <button mat-fab class="emojiHappy" (click)="data.emotion.mood = 'Happy'; data.emotion.date = getDate()" matTooltip="Happy"></button>
@@ -16,3 +15,4 @@
 </div>
 
 <button mat-raised-button id="confirmAddEmotionButton" [mat-dialog-close]="data.emotion" type="button">Confirm</button>
+

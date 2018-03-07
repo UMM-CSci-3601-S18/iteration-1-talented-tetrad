@@ -1,5 +1,5 @@
-import {Component, Inject} from '@angular/core';
-import {MatDialog, MAT_DIALOG_DATA} from '@angular/material';
+import {Component, Inject, OnInit} from '@angular/core';
+import {MatDialog, MAT_DIALOG_DATA, MatSnackBar} from '@angular/material';
 import {Emotion} from'./emotion';
 import {AddEmotionComponent} from "./home.component-dialog";
 import {EmotionListService} from "./emotion-list.service";
@@ -13,15 +13,18 @@ import {EmotionListService} from "./emotion-list.service";
     //styleUrls: ['./home.component.css']
 
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit{
 
     // The ID of the
     private highlightedID: {'$oid': string} = { '$oid': '' };
 
     // Inject the UserListService into this component.
-    constructor(public emotionListService: EmotionListService, public dialog: MatDialog) {
-
-    }
+    constructor
+    (
+        public emotionListService: EmotionListService,
+        public dialog: MatDialog,
+        public snackBar: MatSnackBar
+    ) {}
 
     isHighlighted(emotion: Emotion): boolean {
         return emotion._id['$oid'] === this.highlightedID['$oid'];
@@ -48,4 +51,16 @@ export class HomeComponent {
                 });
         });
     }
+
+    openSnackBar(){
+        this.snackBar.open("Make sure to log an emotion!", "Ok", {
+            duration: 200000,
+        });
+    }
+
+    ngOnInit()
+    {
+        this.openSnackBar();
+    }
+
 }
