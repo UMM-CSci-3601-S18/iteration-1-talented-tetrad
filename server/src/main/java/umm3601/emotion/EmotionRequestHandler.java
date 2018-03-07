@@ -6,6 +6,7 @@ import com.mongodb.util.JSON;
 import org.bson.types.ObjectId;
 import spark.Request;
 import spark.Response;
+import java.util.Date;
 
 public class EmotionRequestHandler {
     private final EmotionController emotionController;
@@ -45,13 +46,17 @@ public class EmotionRequestHandler {
                 try {
                     BasicDBObject dbO = (BasicDBObject) o;
                     String mood = dbO.getString("mood");
-                    Double time = dbO.getDouble("time");
+                    String date = dbO.getString("date");
+
+                    /*Double time = dbO.getDouble("time");
                     Integer day = dbO.getInt("day");
                     Integer month = dbO.getInt("month");
                     Integer year = dbO.getInt("year");
-
                     System.err.println("Adding new user [mood=" + mood + ", time=" + time + " day=" + day + " month=" + month +  " year=" + year + ']');
-                    return emotionController.addNewEmotion(mood, time, day, month, year).toString();
+                    return emotionController.addNewEmotion(mood, time, day, month, year).toString();*/
+
+                    System.err.println("Adding new emotion [mood=" + mood + ", date= " + date + ']');
+                    return emotionController.addNewEmotion(mood, date).toString();
                 }
                 catch(NullPointerException e)
                 {

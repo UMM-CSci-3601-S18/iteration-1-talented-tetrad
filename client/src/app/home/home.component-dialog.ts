@@ -17,4 +17,10 @@ export class AddEmotionComponent {
 
         this.dialogRef.close();
     }
+
+    getDate(){
+        var today = new Date();
+        console.log("today is: " + today.toString());
+        return today.toString();
+    }
 }

@@ -28,10 +28,10 @@ export class HomeComponent {
     }
 
     openDialog(): void {
-        const newEmotion: Emotion = {_id: '', mood: '', time: 0, day: 0, month: 0, year: 0};
+        const newEmotion: Emotion = {_id: '', mood: '', date: ''};
         const dialogRef = this.dialog.open(AddEmotionComponent, {
             width: '70vw',
-            height: '350px',
+            height: '400px',
             data: { emotion: newEmotion },
         });
 
