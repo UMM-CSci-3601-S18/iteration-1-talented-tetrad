@@ -6,7 +6,7 @@ import { CovalentLayoutModule, CovalentStepsModule, CovalentCommonModule /*, any
 import {
     MatListModule, MatButtonModule, MatCardModule, MatIconModule,
     MatInputModule, MatMenuModule, MatSidenavModule, MatToolbarModule,
-    MatExpansionModule, MatTooltipModule, MatDialogModule, MatSnackBarModule,
+    MatExpansionModule, MatTooltipModule, MatDialogModule, MatSnackBarModule, MatDatepickerModule, MatNativeDateModule
 } from '@angular/material';
 
 import { FlexLayoutModule, } from '@angular/flex-layout';
@@ -36,6 +36,8 @@ const MATERIAL_MODULES: any[] = [
     MatTooltipModule,
     MatDialogModule,
     MatSnackBarModule,
+    MatDatepickerModule,
+    MatNativeDateModule
 ];
 
 const COVALENT_MODULES: any[] = [
