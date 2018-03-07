@@ -12,7 +12,7 @@ import {SummaryListComponent} from './summary/summary-list.component';
 export const routes: Routes = [
     {path: '', component: HomeComponent},
     {path: '', component: AddEmotionComponent},
-    {path: '', component: EmotionListService},
+    //{path: '', component: EmotionListService},
     {path: 'summary', component: SummaryListComponent}
     //{path: 'users', component: UserListComponent}
 ];
