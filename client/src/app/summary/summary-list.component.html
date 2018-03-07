@@ -2,6 +2,8 @@
     <div flex-gt-sm="80" flex-offset-gt-sm="10">
         <mat-card>
             <mat-card-title id="summary-list-title">Summarys</mat-card-title>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
             <form>
                 <!--# The Angular feature-->
                 <label> Emotion:</label>
@@ -33,9 +35,6 @@
                 <mat-datepicker touchUi="true" #end></mat-datepicker>
             </mat-form-field>
 
-
-
-
             <br>
 
             <mat-divider></mat-divider>
@@ -44,7 +43,66 @@
             </div>
 
             Total Number of {{summaryEmotion}} Entries: {{totalNumberEmotions(summaryEmotion, start, end)}}<br>
-            {{returnTime(summaryEmotion)}}<br>
+            {{returnTime(summaryEmotion)}}
+
+            <button style="border: 2px dotted;" mat-raised-button (click)="openDialog()">Would you like to see more info?</button>
+
+
+
+
+
+         <!--   <ul class="bar-graph">
+              &lt;!&ndash;  <li class="bar-graph-axis">
+                    <div class="bar-graph-label">100%</div>
+                    <div class="bar-graph-label">80%</div>
+                    <div class="bar-graph-label">60%</div>
+                    <div class="bar-graph-label">40%</div>
+                    <div class="bar-graph-label">20%</div>
+                    <div class="bar-graph-label">0%</div>
+                </li>&ndash;&gt;
+                <li class="bar alert" style="height:{{getHeight(200)}}%;" title="2am">
+                    <div class="percent">{{getHeight(200)}}<span></span></div>
+                </li>
+                <li class="bar alert" style="height:{{getHeight(400)}}%;" title="4am">
+                    <div class="percent">{{getHeight(400)}}<span></span></div>
+                </li>
+                <li class="bar alert" style="height:{{getHeight(600)}}%;" title="6am">
+                    <div class="percent">{{getHeight(600)}}<span></span></div>
+                </li>
+                <li class="bar alert" style="height:{{getHeight(800)}}%;" title="8am">
+                    <div class="percent">{{getHeight(800)}}<span></span></div>
+                </li>
+                <li class="bar alert" style="height:{{getHeight(1000)}}%;" title="10am">
+                    <div class="percent">{{getHeight(1000)}}<span></span></div>
+                </li>
+                <li class="bar alert" style="height: {{getHeight(1200)}}%;" title="12pm">
+                    <div class="percent">{{getHeight(1200)}}<span></span></div>
+                </li>
+                <li class="bar alert" style="height: {{getHeight(1400)}}%;" title="2pm">
+                    <div class="percent">{{getHeight(1400)}}<span></span></div>
+                </li>
+                <li class="bar alert" style="height: {{getHeight(1600)}}%;" title="4pm">
+                    <div class="percent">{{getHeight(1600)}}<span></span></div>
+                </li>
+                <li class="bar alert" style="height: {{getHeight(1800)}}%;" title="6pm">
+                    <div class="percent">{{getHeight(1800)}}<span></span></div>
+                </li>
+                <li class="bar alert" style="height: {{getHeight(2000)}}%;" title="8pm">
+                    <div class="percent">{{getHeight(2000)}}<span></span></div>
+                </li>
+                <li class="bar alert" style="height: {{getHeight(2200)}}%;" title="10pm">
+                    <div class="percent">{{getHeight(2200)}}<span></span></div>
+                </li>
+                <li class="bar alert" style="height: {{getHeight(2400)}}%;" title="12am">
+                    <div class="percent">{{getHeight(2400)}}<span></span></div>
+                </li>
+
+            </ul>--->
+
+
+
+
+
 
             <!--Total Number of Entries: {{totalNumberEntries()}}<br>
             Total Number of Radiant Entries: {{totalNumberEmotions("radiant")}}<br>
@@ -53,6 +111,7 @@
             Total Number of Down Entries: {{totalNumberEmotions("down")}}<br>
             Total Number of Sad Entries: {{totalNumberEmotions("sad")}}<br>
             Total Number of Anxious Entries: {{totalNumberEmotions("anxious")}}<br>-->
+
                 <mat-accordion *ngIf="summarys; else summarysError" >
                 </mat-accordion>
                 <ng-template #summarysError>
