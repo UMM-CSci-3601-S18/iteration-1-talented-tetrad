@@ -30,6 +30,8 @@ export class AppPage {
         return element(by.id('selectEmoji')).click();
     }
 
+
+
     clickMenuButton(): promise.Promise<void> {
         this.highlightElement(by.id('menuButton'));
         return element(by.id('menuButton')).click();
