@@ -63,7 +63,7 @@ describe('angular-spark-lab', () => {
     });
 
 
-    // makes sure it clicks on menu button
+    // makes sure it clicks on menu button and then summary page
     it('should click on menu button', () => {
         AppPage.navigateTo();
         page.clickMenuButton();
