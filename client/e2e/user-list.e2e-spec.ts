@@ -1,4 +1,4 @@
-import {UserPage} from './user-list.po';
+//import {UserPage} from './user-list.po';
 import {browser, protractor, element, by} from 'protractor';
 import {Key} from 'selenium-webdriver';
 
@@ -17,7 +17,7 @@ import {Key} from 'selenium-webdriver';
 //
 //     return origFn.apply(browser.driver.controlFlow(), args);
 // };
-
+/*
 describe('User list', () => {
     let page: UserPage;
 
@@ -160,3 +160,4 @@ describe('User list', () => {
         element(by.id('exitWithoutAddingButton')).click();
     });
 });
+*/
