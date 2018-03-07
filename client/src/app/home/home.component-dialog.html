@@ -1,17 +1,15 @@
-<mat-card-title style="text-align: center;">
-    How are you feeling today?
+<mat-card-title style="text-align: center;" [(ngModel)]="data.emotion.mood">
+    How are you feeling today? {{data.emotion.mood}}
 </mat-card-title>
 <mat-divider></mat-divider>
 
-<!--
-
 <div mat-dialog-actions class="emoji-buttons">
-    <button mat-fab class="emojiRadiant" (click)="onNoClick()" matTooltip="Radiant"></button>
-    <button mat-fab class="emojiHappy" (click)="onNoClick()" matTooltip="Happy"></button>
-    <button mat-fab class="emojiMeh" (click)="onNoClick()" matTooltip="Meh"></button>
-    <button mat-fab class="emojiDown" (click)="onNoClick()" matTooltip="Down"></button>
-    <button mat-fab class="emojiSad" (click)="onNoClick()" matTooltip="Sad"></button>
-    <button mat-fab class="emojiAnxious" (click)="onNoClick()" matTooltip="Anxious"></button>
+    <button mat-fab class="emojiRadiant" (click)="data.emotion.mood = 'Radiant'" matTooltip="Radiant"></button>
+    <button mat-fab class="emojiHappy" (click)="data.emotion.mood = 'Happy'" matTooltip="Happy"></button>
+    <button mat-fab class="emojiMeh" (click)="data.emotion.mood = 'Meh'" matTooltip="Meh"></button>
+    <button mat-fab class="emojiDown" (click)="data.emotion.mood = 'Down'" matTooltip="Down"></button>
+    <button mat-fab class="emojiSad" (click)="data.emotion.mood = 'Sad'" matTooltip="Sad"></button>
+    <button mat-fab class="emojiAnxious" (click)="data.emotion.mood = 'Anxious'" matTooltip="Anxious"></button>
 </div>
 
--->
+<button mat-raised-button id="confirmAddEmotionButton" [mat-dialog-close]="data.emotion" type="button">Confirm</button>

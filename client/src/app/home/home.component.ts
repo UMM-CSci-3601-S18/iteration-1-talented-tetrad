@@ -1,5 +1,8 @@
 import {Component, Inject} from '@angular/core';
 import {MatDialog, MAT_DIALOG_DATA} from '@angular/material';
+import {Emotion} from'./emotion';
+import {AddEmotionComponent} from "./home.component-dialog";
+import {EmotionListService} from "./emotion-list.service";
 
 /**
  * @title Injecting data when opening a dialog
@@ -7,23 +10,42 @@ import {MatDialog, MAT_DIALOG_DATA} from '@angular/material';
 @Component({
     selector: 'home.component',
     templateUrl: 'home.component.html',
+    //styleUrls: ['./home.component.css']
+
 })
 export class HomeComponent {
-    constructor(public dialog: MatDialog) {}
 
-    openDialog() {
-        this.dialog.open(HomeComponentDialog, {
+    // The ID of the
+    private highlightedID: {'$oid': string} = { '$oid': '' };
+
+    // Inject the UserListService into this component.
+    constructor(public emotionListService: EmotionListService, public dialog: MatDialog) {
+
+    }
+
+    isHighlighted(emotion: Emotion): boolean {
+        return emotion._id['$oid'] === this.highlightedID['$oid'];
+    }
+
+    openDialog(): void {
+        const newEmotion: Emotion = {_id: '', mood: '', time: 0, day: 0, month: 0, year: 0};
+        const dialogRef = this.dialog.open(AddEmotionComponent, {
             width: '70vw',
-            height: '50vh',
+            height: '350px',
+            data: { emotion: newEmotion },
+        });
+
+        dialogRef.afterClosed().subscribe(result => {
+            this.emotionListService.addNewEmotion(result).subscribe(
+                addEmotionResult => {
+                    this.highlightedID = addEmotionResult;
+                    //this.refreshUsers();
+                },
+                err => {
+                    // This should probably be turned into some sort of meaningful response.
+                    console.log('There was an error adding the emotion.');
+                    console.log('The error was ' + JSON.stringify(err));
+                });
         });
     }
-}
-
-@Component({
-    selector: 'home.component-dialog',
-    templateUrl: 'home.component-dialog.html',
-    styleUrls: ['home.component-dialog.css'],
-})
-export class HomeComponentDialog {
-    constructor(@Inject(MAT_DIALOG_DATA) public data: any) {}
 }

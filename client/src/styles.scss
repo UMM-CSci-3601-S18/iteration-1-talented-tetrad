@@ -35,3 +35,13 @@ body .md-subhead {
 [layout-align="space-around center"] > * {
     color: black;
 }
+
+/* for modifying icons in navbar when unclicked*/
+mat-sidenav .mat-list-item-content mat-icon {
+    color: black;
+}
+
+/* changes the color of the text of both side nav bar texts*/
+.mat-nav-list .mat-list-item-content {
+    color: black;
+}
