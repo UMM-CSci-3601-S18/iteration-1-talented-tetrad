@@ -16,25 +16,26 @@
                 </select>
             </form>
             <!--<material-datepicker [(ngModel)]="yourModelDate"></material-datepicker>-->
-            <form>
-                <!--# The Angular feature-->
-                <label> Select Start Date:</label>
-                <select name="dropdown" id="calendarSelection" #input placeholder="Month" (input)="calendarSelection = $event.target.value">
-                    <option value="" selected disabled ></option>
-                    <option value="1">1</option>
-                    <option value="1">2</option>
-                    <option value="1">3</option>
-                    <option value="1">4</option>
-                    <option value="1">5</option>
-                    <option value="1">6</option>
-                    <option value="1">7</option>
-                    <option value="1">1</option>
-                    <option value="1">1</option>
-                    <option value="1">1</option>
-                    <option value="1">1</option>
-                    <option value="1">1</option>
-                </select>
-            </form>
+
+            <!--<input matInput [matDatepicker]="picker" placeholder="Choose a start date" [(ngModel)]="inputStartDate">
+            <mat-datepicker #picker [startAt]="startDate"></mat-datepicker>-->
+
+            <mat-form-field class="start">
+                <input matInput [matDatepicker]="start" placeholder="Choose a Start Date">
+                <mat-datepicker-toggle matSuffix [for]="start"></mat-datepicker-toggle>
+                <mat-datepicker touchUi="true" #start></mat-datepicker>
+            </mat-form-field>
+
+
+            <mat-form-field class="end">
+                <input matInput [matDatepicker]="end" placeholder="Choose an End Date">
+                <mat-datepicker-toggle matSuffix [for]="end"></mat-datepicker-toggle>
+                <mat-datepicker touchUi="true" #end></mat-datepicker>
+            </mat-form-field>
+
+
+
+
             <br>
 
             <mat-divider></mat-divider>
@@ -42,7 +43,7 @@
                 {{aveTime(summaryEmotion, summary.time)}}
             </div>
 
-            Total Number of {{summaryEmotion}} Entries: {{totalNumberEmotions(summaryEmotion)}}<br>
+            Total Number of {{summaryEmotion}} Entries: {{totalNumberEmotions(summaryEmotion, start, end)}}<br>
             {{returnTime(summaryEmotion)}}<br>
 
             <!--Total Number of Entries: {{totalNumberEntries()}}<br>
