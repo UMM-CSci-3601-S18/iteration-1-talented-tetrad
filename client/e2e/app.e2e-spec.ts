@@ -62,13 +62,13 @@ describe('angular-spark-lab', () => {
         element(by.id('Anxious'));
     });
 
-
     // makes sure it clicks on menu button and then summary page
-    it('should click on menu button', () => {
+    it('should click on menu button then summary tab ', () => {
         AppPage.navigateTo();
         page.clickMenuButton();
         element(by.id('summaryButton'));
     });
+
 
 
 });
