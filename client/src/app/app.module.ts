@@ -8,7 +8,6 @@ import {APP_BASE_HREF} from '@angular/common';
 import {CustomModule} from './custom.module';
 
 import {SummaryListService} from './summary/summary-list.service';
-import {SummaryComponent} from './summary/summary.component';
 import {HomeComponent} from './home/home.component';
 import {SummaryListComponent} from './summary/summary-list.component';
 import {AddEmotionComponent} from "./home/home.component-dialog";
@@ -28,7 +27,6 @@ import {EmotionListService} from './home/emotion-list.service';
         AppComponent,
         HomeComponent,
         SummaryListComponent,
-        SummaryComponent,
         AddEmotionComponent,
     ],
     providers: [

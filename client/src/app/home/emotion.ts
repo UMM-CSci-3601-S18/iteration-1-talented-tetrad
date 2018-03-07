@@ -1,8 +1,8 @@
 export interface Emotion {
     _id: string;
     mood: string;
-    time: string;
-    day: string;
-    month: string;
-    year: string;
+    time: number;
+    day: number;
+    month: number;
+    year: number;
 }

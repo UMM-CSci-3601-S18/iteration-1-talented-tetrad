@@ -38,16 +38,17 @@ public class EmotionRequestHandler {
     {
         res.type("application/json");
         Object o = JSON.parse(req.body());
+        System.err.println(o);
         try {
             if(o.getClass().equals(BasicDBObject.class))
             {
                 try {
                     BasicDBObject dbO = (BasicDBObject) o;
                     String mood = dbO.getString("mood");
-                    String time = dbO.getString("time");
-                    String day = dbO.getString("day");
-                    String month = dbO.getString("month");
-                    String year = dbO.getString("year");
+                    Double time = dbO.getDouble("time");
+                    Integer day = dbO.getInt("day");
+                    Integer month = dbO.getInt("month");
+                    Integer year = dbO.getInt("year");
 
                     System.err.println("Adding new user [mood=" + mood + ", time=" + time + " day=" + day + " month=" + month +  " year=" + year + ']');
                     return emotionController.addNewEmotion(mood, time, day, month, year).toString();

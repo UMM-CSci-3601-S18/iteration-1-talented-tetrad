@@ -37,7 +37,7 @@ public class EmotionController {
         }
     }
 
-    public String addNewEmotion(String mood, String time, String day, String month, String year) {
+    public String addNewEmotion(String mood, double time, int day, int month, int year) {
         Document newEmotion = new Document();
         newEmotion.append("mood", mood);
         newEmotion.append("time", time);

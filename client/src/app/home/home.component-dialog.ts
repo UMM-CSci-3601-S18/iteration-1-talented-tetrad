@@ -13,7 +13,16 @@ export class AddEmotionComponent {
         @Inject(MAT_DIALOG_DATA) public data: {emotion: Emotion}) {
     }
 
-    onNoClick(): void {
+    onNoClick(response): void {
+
+        const date = new Date();
+
+        this.data.emotion.mood = response;
+        this.data.emotion.time = date.getTime();
+        this.data.emotion.day = date.getDate();
+        this.data.emotion.month = date.getMonth();
+        this.data.emotion.year = date.getFullYear();
+
         this.dialogRef.close();
     }
 }
