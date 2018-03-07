@@ -21,42 +21,42 @@ describe('angular-spark-lab', () => {
     });
 
     // makes sure it clicks on the radiant labeled emoji
-    it('Should click on an emoji', () => {
+    it('Should click on radiant emoji', () => {
         AppPage.navigateTo();
         page.clickSelectEmojiButton();
         element(by.id('Radiant'));
     });
 
     // makes sure it clicks on the happy labeled emoji
-    it('Should click on an emoji', () => {
+    it('Should click on happy emoji', () => {
         AppPage.navigateTo();
         page.clickSelectEmojiButton();
         element(by.id('Happy'));
     });
 
     // makes sure it clicks on the meh labeled emoji
-    it('Should click on an emoji', () => {
+    it('Should click on meh emoji', () => {
         AppPage.navigateTo();
         page.clickSelectEmojiButton();
         element(by.id('Meh'));
     });
 
     // makes sure it clicks on the down labeled emoji
-    it('Should click on an emoji', () => {
+    it('Should click on down emoji', () => {
         AppPage.navigateTo();
         page.clickSelectEmojiButton();
         element(by.id('Down'));
     });
 
     // makes sure it clicks on the sad labeled emoji
-    it('Should click on an emoji', () => {
+    it('Should click on sad emoji', () => {
         AppPage.navigateTo();
         page.clickSelectEmojiButton();
         element(by.id('Sad'));
     });
 
     // makes sure it clicks on the anxious labeled emoji
-    it('Should click on an emoji', () => {
+    it('Should click on anxious emoji', () => {
         AppPage.navigateTo();
         page.clickSelectEmojiButton();
         element(by.id('Anxious'));
