@@ -1,4 +1,4 @@
-import {browser, element, by, promise} from 'protractor';
+/*import {browser, element, by, promise} from 'protractor';
 import {Key} from 'selenium-webdriver';
 
 export class UserPage {
@@ -83,3 +83,4 @@ export class UserPage {
     }
 
 }
+*/

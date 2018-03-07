@@ -2,12 +2,10 @@
     <div flex-gt-sm="80" flex-offset-gt-sm="10">
         <mat-card>
             <mat-card-title id="hello-world">Homepage</mat-card-title>
-            <mat-card-subtitle>Below, there is an option to select an emoji based on how you're feeling.
-                               Further down, there are clickable resource links.
-            </mat-card-subtitle>
+            <mat-card-subtitle>Below, there is an option to select an emoji based on how you're feeling.</mat-card-subtitle>
             <mat-divider></mat-divider>
             <mat-card-content>
-                <button style="border: 2px dotted;" mat-raised-button (click)="openDialog()">Select an Emoji</button>
+                <button id = "selectEmoji" style="border: 2px dotted;" mat-raised-button (click)="openDialog()">Select an Emoji</button>
             </mat-card-content>
         </mat-card>
     </div>

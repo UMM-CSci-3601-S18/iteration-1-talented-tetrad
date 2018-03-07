@@ -63,3 +63,14 @@
     margin: auto;
     margin-bottom: 10px;
 }
+
+#confirmAddEmotionButton {
+    color: black;
+    background-color: dodgerblue;
+    display: block;
+    width: 10%;
+    text-align: center;
+    margin:0 auto;
+    margin-top: 3%;
+
+}
