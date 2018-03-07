@@ -8,6 +8,8 @@ import com.mongodb.client.MongoDatabase;
 import com.mongodb.util.JSON;
 import org.bson.Document;
 import org.bson.types.ObjectId;
+
+import java.util.Date;
 import java.util.Iterator;
 import java.util.Map;
 import static com.mongodb.client.model.Filters.eq;
@@ -37,17 +39,21 @@ public class EmotionController {
         }
     }
 
-    public String addNewEmotion(String mood, double time, int day, int month, int year) {
+    public String addNewEmotion(String mood, String date) {
         Document newEmotion = new Document();
         newEmotion.append("mood", mood);
+        newEmotion.append("date", date);
+        /*
         newEmotion.append("time", time);
         newEmotion.append("day", day);
         newEmotion.append("month", month);
         newEmotion.append("year", year);
+        */
         try {
             emotionCollection.insertOne(newEmotion);
             ObjectId id = newEmotion.getObjectId("_id");
-            System.err.println("Successfully added new emotion [_id=" + id + ", mood=" + mood + ", time=" + time + " day=" + day + " month=" + month +  " year=" + year + ']');
+            //System.err.println("Successfully added new emotion [_id=" + id + ", mood=" + mood + ", time=" + time + " day=" + day + " month=" + month +  " year=" + year + ']');
+            System.err.println("Successfully added new emotion [_id=" + id + ", mood=" + mood + ", date=" + date + ']');
             return JSON.serialize(id);
         } catch(MongoException me) {
             me.printStackTrace();
