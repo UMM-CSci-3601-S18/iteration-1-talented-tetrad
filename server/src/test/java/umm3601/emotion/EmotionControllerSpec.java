@@ -77,7 +77,7 @@ public class EmotionControllerSpec
 
     //These tests are a little odd, because adding is done exclusively in this controller,
     //while getting is done in the other controller: SummaryControllerSpec
-    /*@Test
+    @Test
     public void addJacobEmotion() {
         Map<String, String[]> argMap = new HashMap<>();
         String jsonResult = emotionController.getEmotions(argMap);
@@ -89,7 +89,7 @@ public class EmotionControllerSpec
         jsonResult = emotionController.getEmotions(argMap);
         docs = parseJsonArray(jsonResult);
         assertEquals("Should be 5 entry", 5, docs.size());
-    }*/
+    }
 
 
 }
