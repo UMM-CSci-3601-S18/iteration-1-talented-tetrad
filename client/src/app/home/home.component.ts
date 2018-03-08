@@ -65,8 +65,8 @@ export class HomeComponent implements OnInit{
 
     ngOnInit()
     {
-        console.log(openedSnackBar);
-        // THIS WORKS DESPITE THE ERROR
+        console.log(openedSnackBar);                 //this   |
+        // THIS WORKS DESPITE THE ERROR ----------------------v
         if(openedSnackBar == false) {this.openSnackBar(); openedSnackBar = true;}
     }
 
