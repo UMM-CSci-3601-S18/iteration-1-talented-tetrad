@@ -43,13 +43,47 @@
 
             <mat-divider></mat-divider>
             <div *ngFor="let summary of this.filterSummarys(summaryMood)">
-                {{aveTime(summaryMood)}}
+                {{aveTime(summaryMood, summary.date)}}
             </div>
 
             Total Number of {{summaryMood}} Entries: {{totalNumberMoods(summaryMood, start, end)}}<br>
             {{returnTime(summaryMood)}}<br>
-            {{startDate}}<br>
-            {{endDate}}<br>
+
+            <mat-accordion>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Would you like to see more information?
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <mat-panel-description >{{returnMoreData(summaryMood, "twelveAm")}}</mat-panel-description>
+                    <mat-panel-description >{{returnMoreData(summaryMood, "oneAm")}}</mat-panel-description>
+                    <mat-panel-description >{{returnMoreData(summaryMood, "twoAm")}}</mat-panel-description>
+                    <mat-panel-description >{{returnMoreData(summaryMood, "twreeAm")}}</mat-panel-description>
+                    <mat-panel-description >{{returnMoreData(summaryMood, "fourAm")}}</mat-panel-description>
+                    <mat-panel-description >{{returnMoreData(summaryMood, "fiveAm")}}</mat-panel-description>
+                    <mat-panel-description >{{returnMoreData(summaryMood, "sixAm")}}</mat-panel-description>
+                    <mat-panel-description >{{returnMoreData(summaryMood, "sevenAm")}}</mat-panel-description>
+                    <mat-panel-description >{{returnMoreData(summaryMood, "eightAm")}}</mat-panel-description>
+                    <mat-panel-description >{{returnMoreData(summaryMood, "nineAm")}}</mat-panel-description>
+                    <mat-panel-description >{{returnMoreData(summaryMood, "tenAm")}}</mat-panel-description>
+                    <mat-panel-description >{{returnMoreData(summaryMood, "elevenAm")}}</mat-panel-description>
+                    <mat-panel-description >{{returnMoreData(summaryMood, "twelvePm")}}</mat-panel-description>
+                    <mat-panel-description >{{returnMoreData(summaryMood, "onePm")}}</mat-panel-description>
+                    <mat-panel-description >{{returnMoreData(summaryMood, "twoPm")}}</mat-panel-description>
+                    <mat-panel-description >{{returnMoreData(summaryMood, "treePm")}}</mat-panel-description>
+                    <mat-panel-description >{{returnMoreData(summaryMood, "fourPm")}}</mat-panel-description>
+                    <mat-panel-description >{{returnMoreData(summaryMood, "fivePm")}}</mat-panel-description>
+                    <mat-panel-description >{{returnMoreData(summaryMood, "sixPm")}}</mat-panel-description>
+                    <mat-panel-description >{{returnMoreData(summaryMood, "sevenPm")}}</mat-panel-description>
+                    <mat-panel-description >{{returnMoreData(summaryMood, "eightPm")}}</mat-panel-description>
+                    <mat-panel-description >{{returnMoreData(summaryMood, "ninePm")}}</mat-panel-description>
+                    <mat-panel-description >{{returnMoreData(summaryMood, "tenPm")}}</mat-panel-description>
+                    <mat-panel-description >{{returnMoreData(summaryMood, "elevenPm")}}</mat-panel-description>
+
+
+                </mat-expansion-panel>
+            </mat-accordion>
 
 
             <!--<button id = "moreInfoButton" style="border: 2px dotted;" mat-raised-button (click)="openDialog()">Would you like to see more info?</button>-->
@@ -113,17 +147,6 @@
             Total Number of Anxious Entries: {{totalNumberMoods("anxious")}}<br>-->
 
             <mat-accordion *ngIf="summarys; else summarysError" >
-            </mat-accordion>
-
-
-            <mat-accordion>
-                <mat-expansion-panel>
-                    <mat-expansion-panel-header>
-                        <mat-panel-title>
-                            Would you like to see more information?
-                        </mat-panel-title>
-                    </mat-expansion-panel-header>
-                </mat-expansion-panel>
             </mat-accordion>
 
 
