@@ -67,7 +67,9 @@ export class HomeComponent implements OnInit{
     {
         console.log(openedSnackBar);                 //this   |
         // THIS WORKS DESPITE THE ERROR ----------------------v
-        if(openedSnackBar == false) {this.openSnackBar(); openedSnackBar = true;}
+        //if(openedSnackBar == false) {this.openSnackBar(); openedSnackBar = true;}
+        //This had to be commented out due to travis not appreciating this.. :(
+        this.openSnackBar();
     }
 
 }
