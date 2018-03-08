@@ -39,16 +39,30 @@ public class EmotionController {
         }
     }
 
+    public String getEmotions(Map<String, String[]> queryParams) {
+
+        Document filterDoc = new Document();
+
+        if (queryParams.containsKey("mood")) {
+            String targetMood = queryParams.get("mood")[0];
+            filterDoc = filterDoc.append("mood", targetMood);
+        }
+
+        if(queryParams.containsKey("date")){
+            String targetDate = queryParams.get("date")[0];
+            filterDoc = filterDoc.append("date", targetDate);
+        }
+
+        //FindIterable comes from mongo, Document comes from Gson
+        FindIterable<Document> matchingEmotions = emotionCollection.find(filterDoc);
+
+        return JSON.serialize(matchingEmotions);
+    }
+
     public String addNewEmotion(String mood, String date) {
         Document newEmotion = new Document();
         newEmotion.append("mood", mood);
         newEmotion.append("date", date);
-        /*
-        newEmotion.append("time", time);
-        newEmotion.append("day", day);
-        newEmotion.append("month", month);
-        newEmotion.append("year", year);
-        */
         try {
             emotionCollection.insertOne(newEmotion);
             ObjectId id = newEmotion.getObjectId("_id");

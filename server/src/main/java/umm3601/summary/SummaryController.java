@@ -82,6 +82,11 @@ public class SummaryController {
             filterDoc = filterDoc.append("mood", targetMood);
         }
 
+        if(queryParams.containsKey("date")){
+            String targetDate = queryParams.get("date")[0];
+            filterDoc = filterDoc.append("date", targetDate);
+        }
+
         //FindIterable comes from mongo, Document comes from Gson
         FindIterable<Document> matchingSummarys = summaryCollection.find(filterDoc);
 
