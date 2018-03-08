@@ -15,8 +15,8 @@ export class SummaryListService {
     constructor(private http: HttpClient) {
     }
 
-    getSummarys(summaryEmotion?: string): Observable<Summary[]> {
-        this.filterByEmotion(summaryEmotion);
+    getSummarys(summaryMood?: string): Observable<Summary[]> {
+        this.filterByMood(summaryMood);
         return this.http.get<Summary[]>(this.summaryUrl);
     }
 
@@ -31,23 +31,23 @@ export class SummaryListService {
     }
     */
 
-    filterByEmotion(summaryEmotion?: string): void {
-        if (!(summaryEmotion == null || summaryEmotion === '')) {
-            if (this.parameterPresent('emotion=') ) {
+    filterByMood(summaryMood?: string): void {
+        if (!(summaryMood == null || summaryMood === '')) {
+            if (this.parameterPresent('mood=') ) {
                 // there was a previous search by company that we need to clear
-                this.removeParameter('emotion=');
+                this.removeParameter('mood=');
             }
             if (this.summaryUrl.indexOf('?') !== -1) {
                 // there was already some information passed in this url
-                this.summaryUrl += 'emotion=' + summaryEmotion + '&';
+                this.summaryUrl += 'mood=' + summaryMood + '&';
             } else {
                 // this was the first bit of information to pass in the url
-                this.summaryUrl += '?emotion=' + summaryEmotion + '&';
+                this.summaryUrl += '?mood=' + summaryMood + '&';
             }
         } else {
             // there was nothing in the box to put onto the URL... reset
-            if (this.parameterPresent('emotion=')) {
-                let start = this.summaryUrl.indexOf('emotion=');
+            if (this.parameterPresent('mood=')) {
+                let start = this.summaryUrl.indexOf('mood=');
                 const end = this.summaryUrl.indexOf('&', start);
                 if (this.summaryUrl.substring(start - 1, start) === '?') {
                     start = start - 1;

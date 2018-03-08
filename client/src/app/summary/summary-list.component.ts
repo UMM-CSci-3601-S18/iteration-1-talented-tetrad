@@ -17,7 +17,7 @@ import {SummaryComponentDialog} from "./summary.component-dialog";
 export class SummaryListComponent implements OnInit {
     startDate;
     endDate;
-    private setEmotion: string;
+    private setMood: string;
 
     private morning = 0;
     private afternoon = 0;
@@ -41,7 +41,7 @@ export class SummaryListComponent implements OnInit {
 
     // These are the target values used in searching.
     // We should rename them to make that clearer.
-    public summaryEmotion: string;
+    public summaryMood: string;
 
     // The ID of the
     private highlightedID: {'$oid': string} = { '$oid': '' };
@@ -55,16 +55,16 @@ export class SummaryListComponent implements OnInit {
         return summary._id['$oid'] === this.highlightedID['$oid'];
     }
 
-    public filterSummarys(searchEmotion: string): Summary[] {
+    public filterSummarys(searchMood: string): Summary[] {
 
         this.filteredSummarys = this.summarys;
 
-        // Filter by Emotion
-        if (searchEmotion != null) {
-            searchEmotion = searchEmotion.toLocaleLowerCase();
+        // Filter by Mood
+        if (searchMood != null) {
+            searchMood = searchMood.toLocaleLowerCase();
 
             this.filteredSummarys = this.filteredSummarys.filter(summary => {
-                return !searchEmotion || summary.emotion.toLowerCase().indexOf(searchEmotion) !== -1;
+                return !searchMood || summary.mood.toLowerCase().indexOf(searchMood) !== -1;
             });
         }
 
@@ -85,7 +85,7 @@ export class SummaryListComponent implements OnInit {
         summaryListObservable.subscribe(
             summarys => {
                 this.summarys = summarys;
-                this.filterSummarys(this.summaryEmotion);
+                this.filterSummarys(this.summaryMood);
             },
             err => {
                 console.log(err);
@@ -95,7 +95,7 @@ export class SummaryListComponent implements OnInit {
 
 
     loadService(): void {
-        this.summaryListService.getSummarys(this.summaryEmotion).subscribe(
+        this.summaryListService.getSummarys(this.summaryMood).subscribe(
             summarys => {
                 this.summarys = summarys;
                 this.filteredSummarys = this.summarys;
@@ -110,24 +110,24 @@ export class SummaryListComponent implements OnInit {
         return this.summarys.length;
     }
 
-    totalNumberEmotions(emotion: string): number{
+    totalNumberMoods(mood: string): number{
         this.filteredSummarys = this.summarys;
         this.filteredSummarys = this.filteredSummarys.filter(summary=>{
-            return !emotion || emotion.toLowerCase().indexOf(summary.emotion) !== -1;
+            return !mood || mood.toLowerCase().indexOf(summary.mood) !== -1;
         })
 
         return this.filteredSummarys.length;
     }
 
-    aveTime(emotion: string, time: number) {
-        if (emotion != this.setEmotion) {
+    aveTime(mood: string, time: number) {
+        if (mood != this.setMood) {
             this.resetNums()
-            this.setEmotion = emotion;
+            this.setMood = mood;
         }
 
-        if(emotion != this.setEmotion){
+        if(mood != this.setMood){
             this.resetNums()
-            this.setEmotion = emotion;
+            this.setMood = mood;
         }
 
         if(time >= 600 && time <= 1100){
@@ -179,20 +179,20 @@ export class SummaryListComponent implements OnInit {
        }
    }*/
 
-    returnTime(emotion: string): string{
-        if(emotion == ""){
+    returnTime(mood: string): string{
+        if(mood == ""){
             return "";
         }
 
         if(this.morning > this.afternoon && this.morning > this.night){
-            return "You usually feel " + emotion + " in the morning";
+            return "You usually feel " + mood + " in the morning";
         }
 
         else if (this.afternoon > this.morning && this.afternoon > this.night){
-            return "You usually feel " + emotion + " in the afternoon";
+            return "You usually feel " + mood + " in the afternoon";
         }
         else{
-            return "You usually feel " + emotion + " in the night";
+            return "You usually feel " + mood + " in the night";
         }
     }
 

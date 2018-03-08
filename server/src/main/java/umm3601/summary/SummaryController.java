@@ -34,7 +34,7 @@ public class SummaryController {
     public SummaryController(MongoDatabase database) {
         gson = new Gson();
         this.database = database;
-        summaryCollection = database.getCollection("emotions");
+        summaryCollection = database.getCollection("moods");
     }
 
 
@@ -77,9 +77,9 @@ public class SummaryController {
 
         Document filterDoc = new Document();
 
-        if (queryParams.containsKey("emotion")) {
-            String targetEmotion = queryParams.get("emotion")[0];
-            filterDoc = filterDoc.append("emotion", targetEmotion);
+        if (queryParams.containsKey("mood")) {
+            String targetMood = queryParams.get("mood")[0];
+            filterDoc = filterDoc.append("mood", targetMood);
         }
 
         //FindIterable comes from mongo, Document comes from Gson

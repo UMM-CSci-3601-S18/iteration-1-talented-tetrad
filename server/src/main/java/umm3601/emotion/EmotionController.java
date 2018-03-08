@@ -22,7 +22,7 @@ public class EmotionController {
     public EmotionController(MongoDatabase database) {
         gson = new Gson();
         this.database = database;
-        emotionCollection = database.getCollection("emotions");
+        emotionCollection = database.getCollection("summarys");
     }
 
     public String getEmotion(String id) {

@@ -1,5 +1,5 @@
 export interface Summary {
     _id: string;
-    emotion: string;
+    mood: string;
     date:string;
 }
