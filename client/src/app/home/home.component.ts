@@ -3,6 +3,7 @@ import {MatDialog, MAT_DIALOG_DATA, MatSnackBar} from '@angular/material';
 import {Emotion} from'./emotion';
 import {AddEmotionComponent} from "./home.component-dialog";
 import {EmotionListService} from "./emotion-list.service";
+import {openedSnackBar} from "./global.vars";
 
 /**
  * @title Injecting data when opening a dialog
@@ -23,7 +24,7 @@ export class HomeComponent implements OnInit{
     (
         public emotionListService: EmotionListService,
         public dialog: MatDialog,
-        public snackBar: MatSnackBar
+        public snackBar: MatSnackBar,
     ) {}
 
     isHighlighted(emotion: Emotion): boolean {
@@ -64,7 +65,9 @@ export class HomeComponent implements OnInit{
 
     ngOnInit()
     {
-        this.openSnackBar();
+        console.log(openedSnackBar);
+        // THIS WORKS DESPITE THE ERROR
+        if(openedSnackBar == false) {this.openSnackBar(); openedSnackBar = true;}
     }
 
 }

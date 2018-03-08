@@ -68,7 +68,6 @@ export class SummaryListComponent implements OnInit {
             });
         }
 
-
         return this.filteredSummarys;
     }
 
