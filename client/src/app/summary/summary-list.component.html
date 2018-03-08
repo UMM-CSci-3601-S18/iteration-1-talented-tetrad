@@ -2,8 +2,11 @@
 <div layout-gt-sm="row">
     <div flex-gt-sm="80" flex-offset-gt-sm="10">
         <mat-card>
-            <mat-card-title id="summary-list-title">Summary Page</mat-card-title>
+            <mat-card-title id="summary-list-title"><h2>Summary Page</h2></mat-card-title>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+            <mat-divider></mat-divider>
+            <h3><u><i>Filtering:</i></u></h3>
+
 
             <form>
                 <!--# The Angular feature-->
@@ -21,6 +24,7 @@
 
             <br>
 
+
             <mat-form-field class="start">
                 <input
                     id = "startDate"
@@ -28,7 +32,7 @@
                     placeholder="Choose a Start Date"
                     [(ngModel)]="startDate"
                     (input)="startDate = $event.target.value">
-                <mat-datepicker-toggle matSuffix [for]="start"></mat-datepicker-toggle>
+                <mat-datepicker-toggle id = "startButton" matSuffix [for]="start"></mat-datepicker-toggle>
                 <mat-datepicker touchUi="true" #start></mat-datepicker>
             </mat-form-field>
 
@@ -40,17 +44,21 @@
                     placeholder="Choose an End Date"
                     [(ngModel)]="endDate"
                     (input)="endDate = $event.target.value">
-                <mat-datepicker-toggle matSuffix [for]="end"></mat-datepicker-toggle>
+                <mat-datepicker-toggle id = "endButton" matSuffix [for]="end"></mat-datepicker-toggle>
                 <mat-datepicker touchUi="true" #end></mat-datepicker>
             </mat-form-field>
 
+            <br>
             <br>
 
             <mat-divider></mat-divider>
             <div *ngFor="let summary of this.filterSummarys(summaryMood, startDate, endDate)">
             </div>
+            <br>
 
-            Total Number of {{summaryMood}} Entries: {{totalNumberMoods(summaryMood)}}<br>
+            Total Number of {{summaryMood}} Entries: {{totalNumberMoods(summaryMood)}}
+            <br>
+            <br>
 
             <mat-accordion *ngIf="summarys; else summarysError" >
             </mat-accordion>
