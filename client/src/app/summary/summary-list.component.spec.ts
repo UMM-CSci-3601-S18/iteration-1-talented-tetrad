@@ -1,8 +1,7 @@
-/*
 import {ComponentFixture, TestBed, async} from '@angular/core/testing';
-import {User} from './user';
-import {UserListComponent} from './user-list.component';
-import {UserListService} from './user-list.service';
+import {Summary} from './summary';
+import {SummaryListComponent} from './summary-list.component';
+import {SummaryListService} from './summary-list.service';
 import {Observable} from 'rxjs/Observable';
 import {FormsModule} from '@angular/forms';
 import {CustomModule} from '../custom.module';
@@ -12,178 +11,174 @@ import {MatDialog} from '@angular/material';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/do';
 
-describe('User list', () => {
+describe('Summary list', () => {
 
-    let userList: UserListComponent;
-    let fixture: ComponentFixture<UserListComponent>;
+    let summaryList: SummaryListComponent;
+    let fixture: ComponentFixture<SummaryListComponent>;
 
-    let userListServiceStub: {
-        getUsers: () => Observable<User[]>
+    let summaryListServiceStub: {
+        getSummarys: () => Observable<Summary[]>
     };
 
     beforeEach(() => {
-        // stub UserService for test purposes
-        userListServiceStub = {
-            getUsers: () => Observable.of([
+        // stub SummaryService for test purposes
+        summaryListServiceStub = {
+            getSummarys: () => Observable.of([
                 {
-                    _id: 'chris_id',
-                    name: 'Chris',
-                    age: 25,
-                    company: 'UMM',
-                    email: 'chris@this.that'
+                    _id: "5aa09a0f14bb3a882d54decc",
+                    mood: "down",
+                    date: "Mon Mar 21 2018 21:16:00 GMT-0600 (CST)"
                 },
                 {
-                    _id: 'pat_id',
-                    name: 'Pat',
-                    age: 37,
-                    company: 'IBM',
-                    email: 'pat@something.com'
+                    _id: "5aa09a0f14bb3a882d54decd",
+                    mood: "radiant",
+                    date: "Wed Mar 12 2018 07:46:00 GMT-0600 (CST)"
                 },
                 {
-                    _id: 'jamie_id',
-                    name: 'Jamie',
-                    age: 37,
-                    company: 'Frogs, Inc.',
-                    email: 'jamie@frogs.com'
-                }
+                    _id: "5aa09a0f14bb3a882d54dece",
+                    mood: "meh",
+                    date: "Tue Mar 10 2018 09:57:00 GMT-0600 (CST)"
+                },
+                {
+                    _id: "5aa09a0f14bb3a882d54decf",
+                    mood: "down",
+                    date: "Tue Mar 08 2018 14:44:00 GMT-0600 (CST)"
+                },
             ])
         };
 
         TestBed.configureTestingModule({
             imports: [CustomModule],
-            declarations: [UserListComponent],
-            // providers:    [ UserListService ]  // NO! Don't provide the real service!
+            declarations: [SummaryListComponent],
+            // providers:    [ SummaryListService ]  // NO! Don't provide the real service!
             // Provide a test-double instead
-            providers: [{provide: UserListService, useValue: userListServiceStub},
+            providers: [{provide: SummaryListService, useValue: summaryListServiceStub},
                 {provide: MATERIAL_COMPATIBILITY_MODE, useValue: true}]
         });
     });
 
     beforeEach(async(() => {
         TestBed.compileComponents().then(() => {
-            fixture = TestBed.createComponent(UserListComponent);
-            userList = fixture.componentInstance;
+            fixture = TestBed.createComponent(SummaryListComponent);
+            summaryList = fixture.componentInstance;
             fixture.detectChanges();
         });
     }));
 
-    it('contains all the users', () => {
-        expect(userList.users.length).toBe(3);
+    it('contains all the summarys', () => {
+        expect(summaryList.summarys.length).toBe(4);
     });
 
-    it('contains a user named \'Chris\'', () => {
-        expect(userList.users.some((user: User) => user.name === 'Chris')).toBe(true);
+    it('contains a summary with id \'5aa09a0f14bb3a882d54decc\'', () => {
+        expect(summaryList.summarys.some((summary: Summary) => summary._id === '5aa09a0f14bb3a882d54decc')).toBe(true);
     });
 
-    it('contain a user named \'Jamie\'', () => {
-        expect(userList.users.some((user: User) => user.name === 'Jamie')).toBe(true);
+    it('contain a summary with mood \'meh\'', () => {
+        expect(summaryList.summarys.some((summary: Summary) => summary.mood === 'meh')).toBe(true);
     });
 
-    it('doesn\'t contain a user named \'Santa\'', () => {
-        expect(userList.users.some((user: User) => user.name === 'Santa')).toBe(false);
+    it('doesn\'t contain a summary with date \'Thu Mar 19 2018 12:15:00 GMT-0600 (CST)\'', () => {
+        expect(summaryList.summarys.some((summary: Summary) => summary.date === 'Thu Mar 19 2018 12:15:00 GMT-0600 (CST)')).toBe(false);
     });
 
-    it('has two users that are 37 years old', () => {
-        expect(userList.users.filter((user: User) => user.age === 37).length).toBe(2);
+    it('has two summaries that have mood down', () => {
+        expect(summaryList.summarys.filter((summary: Summary) => summary.mood === 'down').length).toBe(2);
     });
 
-    it('user list filters by name', () => {
-        expect(userList.filteredUsers.length).toBe(3);
-        userList.userName = 'a';
-        userList.refreshUsers().subscribe(() => {
-            expect(userList.filteredUsers.length).toBe(2);
+    it('summary list filters by mood', () => {
+        expect(summaryList.filteredSummarys.length).toBe(4);
+        summaryList.summaryEmotion = 'dow';
+        summaryList.refreshSummarys().subscribe(() => {
+            expect(summaryList.filteredSummarys.length).toBe(2);
         });
     });
 
-    it('user list filters by age', () => {
-        expect(userList.filteredUsers.length).toBe(3);
-        userList.userAge = 37;
-        userList.refreshUsers().subscribe(() => {
-            expect(userList.filteredUsers.length).toBe(2);
+    it('summary list filters by mood', () => {
+        expect(summaryList.filteredSummarys.length).toBe(4);
+        summaryList.summaryEmotion = 'rad';
+        summaryList.refreshSummarys().subscribe(() => {
+            expect(summaryList.filteredSummarys.length).toBe(1);
         });
     });
 
-    it('user list filters by name and age', () => {
-        expect(userList.filteredUsers.length).toBe(3);
-        userList.userAge = 37;
-        userList.userName = 'i';
-        userList.refreshUsers().subscribe(() => {
-            expect(userList.filteredUsers.length).toBe(1);
+    it('summary list filters by mood', () => {
+        expect(summaryList.filteredSummarys.length).toBe(4);
+        summaryList.summaryEmotion = 'm';
+        summaryList.refreshSummarys().subscribe(() => {
+            expect(summaryList.filteredSummarys.length).toBe(1);
         });
     });
 
 });
 
-describe('Misbehaving User List', () => {
-    let userList: UserListComponent;
-    let fixture: ComponentFixture<UserListComponent>;
+/*describe('Misbehaving Summary List', () => {
+    let summaryList: SummaryListComponent;
+    let fixture: ComponentFixture<SummaryListComponent>;
 
-    let userListServiceStub: {
-        getUsers: () => Observable<User[]>
+    let summaryListServiceStub: {
+        getSummarys: () => Observable<Summary[]>
     };
 
     beforeEach(() => {
-        // stub UserService for test purposes
-        userListServiceStub = {
-            getUsers: () => Observable.create(observer => {
+        // stub SummaryService for test purposes
+        summaryListServiceStub = {
+            getSummarys: () => Observable.create(observer => {
                 observer.error('Error-prone observable');
             })
         };
 
         TestBed.configureTestingModule({
             imports: [FormsModule, CustomModule],
-            declarations: [UserListComponent],
-            providers: [{provide: UserListService, useValue: userListServiceStub},
+            declarations: [SummaryListComponent],
+            providers: [{provide: SummaryListService, useValue: summaryListServiceStub},
                 {provide: MATERIAL_COMPATIBILITY_MODE, useValue: true}]
         });
     });
 
     beforeEach(async(() => {
         TestBed.compileComponents().then(() => {
-            fixture = TestBed.createComponent(UserListComponent);
-            userList = fixture.componentInstance;
+            fixture = TestBed.createComponent(SummaryListComponent);
+            summaryList = fixture.componentInstance;
             fixture.detectChanges();
         });
     }));
 
-    it('generates an error if we don\'t set up a UserListService', () => {
-        // Since the observer throws an error, we don't expect users to be defined.
-        expect(userList.users).toBeUndefined();
+    it('generates an error if we don\'t set up a SummaryListService', () => {
+        // Since the observer throws an error, we don't expect summarys to be defined.
+        expect(summaryList.summarys).toBeUndefined();
     });
 });
 
 
-describe('Adding a user', () => {
-    let userList: UserListComponent;
-    let fixture: ComponentFixture<UserListComponent>;
-    const newUser: User = {
-        _id: '',
-        name: 'Sam',
-        age: 67,
-        company: 'Things and stuff',
-        email: 'sam@this.and.that'
-    };
-    const newId = 'sam_id';
+describe('Adding a summary', () => {
+    let summaryList: SummaryListComponent;
+    let fixture: ComponentFixture<SummaryListComponent>;
+    const newSummary: Summary =  {
+            _id: "5aa09a0f14bb3a882d54decc",
+            mood: "down",
+            date: "Mon Mar 21 2018 21:16:00 GMT-0600 (CST)"
+        };
+    const newId = 'down_id';
 
-    let calledUser: User;
+    let calledSummary: Summary;
 
-    let userListServiceStub: {
-        getUsers: () => Observable<User[]>,
-        addNewUser: (newUser: User) => Observable<{'$oid': string}>
+    let summaryListServiceStub: {
+        getSummarys: () => Observable<Summary[]>,
+        addNewSummary: (newSummary: Summary) => Observable<{'$oid': string}>
     };
     let mockMatDialog: {
-        open: (AddUserComponent, any) => {
-            afterClosed: () => Observable<User>
+        open: (AddSummaryComponent, any) => {
+            afterClosed: () => Observable<Summary>
         };
     };
 
     beforeEach(() => {
-        calledUser = null;
-        // stub UserService for test purposes
-        userListServiceStub = {
-            getUsers: () => Observable.of([]),
-            addNewUser: (userToAdd: User) => {
-                calledUser = userToAdd;
+        calledSummary = null;
+        // stub SummaryService for test purposes
+        summaryListServiceStub = {
+            getSummarys: () => Observable.of([]),
+            addNewSummary: (summaryToAdd: Summary) => {
+                calledSummary = summaryToAdd;
                 return Observable.of({
                     '$oid': newId
                 });
@@ -193,7 +188,7 @@ describe('Adding a user', () => {
             open: () => {
                 return {
                     afterClosed: () => {
-                        return Observable.of(newUser);
+                        return Observable.of(newSummary);
                     }
                 };
             }
@@ -201,9 +196,9 @@ describe('Adding a user', () => {
 
         TestBed.configureTestingModule({
             imports: [FormsModule, CustomModule],
-            declarations: [UserListComponent],
+            declarations: [SummaryListComponent],
             providers: [
-                {provide: UserListService, useValue: userListServiceStub},
+                {provide: SummaryListService, useValue: summaryListServiceStub},
                 {provide: MatDialog, useValue: mockMatDialog},
                 {provide: MATERIAL_COMPATIBILITY_MODE, useValue: true}]
         });
@@ -211,16 +206,16 @@ describe('Adding a user', () => {
 
     beforeEach(async(() => {
         TestBed.compileComponents().then(() => {
-            fixture = TestBed.createComponent(UserListComponent);
-            userList = fixture.componentInstance;
+            fixture = TestBed.createComponent(SummaryListComponent);
+            summaryList = fixture.componentInstance;
             fixture.detectChanges();
         });
     }));
 
-    it('calls UserListService.addUser', () => {
-        expect(calledUser).toBeNull();
-        userList.openDialog();
-        expect(calledUser).toEqual(newUser);
+    it('calls SummaryListService.addSummary', () => {
+        expect(calledSummary).toBeNull();
+        summaryList.openDialog();
+        expect(calledSummary).toEqual(newSummary);
     });
-});
-*/
+});*/
+
