@@ -64,7 +64,7 @@ export class SummaryListComponent implements OnInit {
             searchEmotion = searchEmotion.toLocaleLowerCase();
 
             this.filteredSummarys = this.filteredSummarys.filter(summary => {
-                return !searchEmotion || summary.emotion.toLowerCase().indexOf(searchEmotion) !== -1;
+                return !searchEmotion || summary.mood.toLowerCase().indexOf(searchEmotion) !== -1;
             });
         }
 
@@ -113,7 +113,7 @@ export class SummaryListComponent implements OnInit {
     totalNumberEmotions(emotion: string): number{
         this.filteredSummarys = this.summarys;
         this.filteredSummarys = this.filteredSummarys.filter(summary=>{
-            return !emotion || emotion.toLowerCase().indexOf(summary.emotion) !== -1;
+            return !emotion || emotion.toLowerCase().indexOf(summary.mood) !== -1;
         })
 
         return this.filteredSummarys.length;
