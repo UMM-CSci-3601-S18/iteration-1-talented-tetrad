@@ -31,7 +31,7 @@ export class HomeComponent implements OnInit{
     }
 
     openDialog(): void {
-        const newEmotion: Emotion = {_id: '', mood: '', date: ''};
+        const newEmotion: Emotion = {_id: '', mood: '...', date: ''};
         const dialogRef = this.dialog.open(AddEmotionComponent, {
             width: '70vw',
             height: '400px',

@@ -52,7 +52,7 @@
             {{endDate}}<br>
 
 
-            <button id = "moreInfoButton" style="border: 2px dotted;" mat-raised-button (click)="openDialog()">Would you like to see more info?</button>
+            <!--<button id = "moreInfoButton" style="border: 2px dotted;" mat-raised-button (click)="openDialog()">Would you like to see more info?</button>-->
 
 
 
@@ -114,6 +114,19 @@
 
             <mat-accordion *ngIf="summarys; else summarysError" >
             </mat-accordion>
+
+
+            <mat-accordion>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Would you like to see more information?
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                </mat-expansion-panel>
+            </mat-accordion>
+
+
             <ng-template #summarysError>
                 <mat-error>
                     There was a problem loading the users. Possibly the server is down or perhaps there are network
@@ -123,6 +136,8 @@
                     Please wait a bit and try again or start the server.
                 </mat-error>
             </ng-template>
+
+
         </mat-card>
     </div>
 </div>
