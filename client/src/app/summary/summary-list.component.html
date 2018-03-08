@@ -9,28 +9,32 @@
                 <!--# The Angular feature-->
                 <label> Emotion:</label>
                 <select name="dropdown" id="summaryEmotion" #input placeholder="Filter by Emotion" (input)="summaryEmotion = $event.target.value">
-                    <option selected value="All" >All Emotions</option>
-                    <option value="Radiant">Radiant</option>
-                    <option value="Happy">Happy</option>
-                    <option value="Meh">Meh</option>
-                    <option value="Down">Down</option>
-                    <option value="Sad">Sad</option>
-                    <option value="Anxious">Anxious</option>
+                    <option id ="dropdownAllEmotions" selected value="All" >All Emotions</option>
+                    <option id = "dropdownRadiant" value="Radiant">Radiant</option>
+                    <option id ="dropdownHappy" value="Happy">Happy</option>
+                    <option id ="dropdownMeh" value="Meh">Meh</option>
+                    <option id ="dropdownDown" value="Down">Down</option>
+                    <option id ="dropdownSad" value="Sad">Sad</option>
+                    <option id ="dropdownAnxious" value="Anxious">Anxious</option>
                 </select>
             </form>
 
             <mat-form-field class="start">
-                <input matInput [matDatepicker]="start"
-                       placeholder="Choose a Start Date"
-                       [(ngModel)]="startDate">
+                <input
+                    id = "startDate"
+                    matInput [matDatepicker]="start"
+                    placeholder="Choose a Start Date"
+                    [(ngModel)]="startDate">
                 <mat-datepicker-toggle matSuffix [for]="start"></mat-datepicker-toggle>
                 <mat-datepicker touchUi="true" #start></mat-datepicker>
             </mat-form-field>
 
 
             <mat-form-field class="end">
-                <input matInput [matDatepicker]="end"
-                       placeholder="Choose an End Date">
+                <input
+                    id = "endDate"
+                    matInput [matDatepicker]="end"
+                    placeholder="Choose an End Date">
                 <mat-datepicker-toggle matSuffix [for]="end"></mat-datepicker-toggle>
                 <mat-datepicker touchUi="true" #end></mat-datepicker>
             </mat-form-field>
@@ -48,7 +52,7 @@
             {{endDate}}<br>
 
 
-            <button style="border: 2px dotted;" mat-raised-button (click)="openDialog()">Would you like to see more info?</button>
+            <button id = "moreInfoButton" style="border: 2px dotted;" mat-raised-button (click)="openDialog()">Would you like to see more info?</button>
 
 
 
