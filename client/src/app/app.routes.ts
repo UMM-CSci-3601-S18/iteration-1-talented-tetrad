@@ -3,8 +3,9 @@ import {ModuleWithProviders} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {HomeComponent} from './home/home.component';
 import {AddEmotionComponent} from './home/home.component-dialog';
-import {EmotionListService} from "./home/emotion-list.service";
+
 import {SummaryListComponent} from './summary/summary-list.component';
+import {SummaryComponentDialog} from "./summary/summary.component-dialog";
 
 //import {UserListComponent} from './users/user-list.component';
 
@@ -12,9 +13,8 @@ import {SummaryListComponent} from './summary/summary-list.component';
 export const routes: Routes = [
     {path: '', component: HomeComponent},
     {path: '', component: AddEmotionComponent},
-    //{path: '', component: EmotionListService},
-    {path: 'summary', component: SummaryListComponent}
-    //{path: 'users', component: UserListComponent}
+    {path: 'summary', component: SummaryListComponent},
+    {path: 'summary', component: SummaryComponentDialog}
 ];
 
 export const Routing: ModuleWithProviders = RouterModule.forRoot(routes);

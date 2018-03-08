@@ -6,6 +6,8 @@ import {Observable} from 'rxjs/Observable';
 import {MatDialog} from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
 
+import {SummaryComponentDialog} from "./summary.component-dialog";
+
 @Component({
     selector: 'app-summary-list-component',
     templateUrl: 'summary-list.component.html',
@@ -194,12 +196,14 @@ export class SummaryListComponent implements OnInit {
         }
     }
 
-    openDialog() {
-        this.dialog.open(SummaryComponentDialog, {
+    openDialog(): void {
+        const dialogRef = this.dialog.open(SummaryComponentDialog, {
             width: '70vw',
-            height: '50vh',
+            height: '400px'
         });
     }
+
+
 
 
 
@@ -270,8 +274,4 @@ export class SummaryListComponent implements OnInit {
         this.startDate = new Date();
         this.endDate = new Date();
     }
-}
-
-export class SummaryComponentDialog {
-    constructor(@Inject(MatDialog) public data: any) {}
 }

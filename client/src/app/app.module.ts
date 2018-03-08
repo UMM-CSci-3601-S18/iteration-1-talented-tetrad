@@ -12,6 +12,7 @@ import {HomeComponent} from './home/home.component';
 import {SummaryListComponent} from './summary/summary-list.component';
 import {AddEmotionComponent} from "./home/home.component-dialog";
 import {EmotionListService} from './home/emotion-list.service';
+import {SummaryComponentDialog} from "./summary/summary.component-dialog";
 
 
 
@@ -28,6 +29,7 @@ import {EmotionListService} from './home/emotion-list.service';
         HomeComponent,
         SummaryListComponent,
         AddEmotionComponent,
+        SummaryComponentDialog,
     ],
     providers: [
         EmotionListService,
