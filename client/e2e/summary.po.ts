@@ -50,13 +50,8 @@ export class SummaryPage {
         return element(by.id('endDate')).click();
     }
 
-   /* selectMoreInfoButton(): promise.Promise<boolean> {
-        this.highlightElement(by.id('moreInfoButton'));
-        return element(by.id('moreInfoButton')).isPresent();
+    clickMenuButton(): promise.Promise<void> {
+        this.highlightElement(by.id('menuButton'));
+        return element(by.id('menuButton')).click();
     }
-
-    clickMoreInfoButton(): promise.Promise<void> {
-        this.highlightElement(by.id('moreInfoButton'));
-        return element(by.id('moreInfoButton')).click();
-    }*/
 }

@@ -104,4 +104,19 @@ describe('angular-spark-lab', () => {
         element(by.id('summaryButton')).click();
     });
 
+    // makes sure it clicks on menu button and then about page
+    it('should click on menu button then about tab ', () => {
+        AppPage.navigateTo();
+        page.clickMenuButton();
+        element(by.id('aboutButton')).click();
+    });
+
+    // makes sure it clicks on menu button and then homepage
+    it('should click on menu button then home tab ', () => {
+        AppPage.navigateTo();
+        page.clickMenuButton();
+        element(by.id('homeButton')).click();
+    });
+
+
 });

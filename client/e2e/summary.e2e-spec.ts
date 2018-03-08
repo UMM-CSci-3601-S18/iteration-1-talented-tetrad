@@ -119,16 +119,36 @@ describe('angular-spark-lab', () => {
         element(by.id('endDate')).click();
     });
 
-   /* // makes sure there is a more info button
-    it('should be a more info button ', () => {
+    // makes sure it clicks on the choose start date calendar button
+    it('should click on the choose a start date calendar button ', () => {
         SummaryPage.navigateTo();
-        expect(page.selectMoreInfoButton()).toBeTruthy();
+        element(by.id('startButton')).click();
     });
 
-    // makes sure it clicks on the more info button
-    it('should click on the more info button ', () => {
+    // makes sure it clicks on the choose end date calendar button
+    it('should click on the choose an end date calendar button ', () => {
         SummaryPage.navigateTo();
-        page.clickMoreInfoButton();
-    });*/
+        element(by.id('endButton')).click();
+    });
 
+    // makes sure it clicks on menu button and then homepage
+    it('should click on menu button then home tab ', () => {
+        SummaryPage.navigateTo();
+        page.clickMenuButton();
+        element(by.id('homeButton')).click();
+    });
+
+    // makes sure it clicks on menu button and then about page
+    it('should click on menu button then about tab ', () => {
+        SummaryPage.navigateTo();
+        page.clickMenuButton();
+        element(by.id('aboutButton')).click();
+    });
+
+    // makes sure it clicks on menu button and then summary page
+    it('should click on menu button then summary tab ', () => {
+        SummaryPage.navigateTo();
+        page.clickMenuButton();
+        element(by.id('summaryButton')).click();
+    });
 });
