@@ -9,6 +9,7 @@ import {CustomModule} from './custom.module';
 
 import {SummaryListService} from './summary/summary-list.service';
 import {HomeComponent} from './home/home.component';
+import {AboutComponent} from './about/about.component';
 import {SummaryListComponent} from './summary/summary-list.component';
 import {AddEmotionComponent} from "./home/home.component-dialog";
 import {EmotionListService} from './home/emotion-list.service';
@@ -27,6 +28,7 @@ import {SummaryComponentDialog} from "./summary/summary.component-dialog";
     declarations: [
         AppComponent,
         HomeComponent,
+        AboutComponent,
         SummaryListComponent,
         AddEmotionComponent,
         SummaryComponentDialog,
