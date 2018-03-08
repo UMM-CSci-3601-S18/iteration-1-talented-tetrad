@@ -12,13 +12,13 @@ browser.driver.controlFlow().execute = function () {
 //     // This delay is only put here so that you can watch the browser do its thing.
 //     // If you're tired of it taking long you can remove this call
     origFn.call(browser.driver.controlFlow(), function () {
-         return protractor.promise.delayed(100);
+         return protractor.promise.delayed(50);
  });
 
      return origFn.apply(browser.driver.controlFlow(), args);
  };
 
-xdescribe('angular-spark-lab', () => {
+describe('angular-spark-lab', () => {
     let page: AboutPage;
 
     beforeEach(() => {
