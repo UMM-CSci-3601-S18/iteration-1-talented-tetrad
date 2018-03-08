@@ -6,3 +6,16 @@
 #list-title {
     padding-right: 14px;
 }
+
+#startDate {
+    text-align: center;
+}
+
+#endDate {
+    text-align: center;
+}
+
+.mat-card:not([class*=mat-elevation-z]) {
+    text-align: center;
+
+}
