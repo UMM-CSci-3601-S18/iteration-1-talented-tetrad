@@ -1,5 +1,5 @@
 <td-layout #layout>
-    <td-navigation-drawer flex sidenavTitle="Sunshine App" >
+    <td-navigation-drawer flex sidenavTitle="Mood Flow" >
         <mat-nav-list>
             <a id = "homeButton" mat-list-item [routerLink]="['/']" (click)="layout.close()" routerLinkActive="nav-active" [routerLinkActiveOptions]="{exact: true}"><mat-icon>home</mat-icon>Home</a>
             <a id = "summaryButton" mat-list-item [routerLink]="['/summary']" (click)="layout.close()" routerLinkActive="nav-active"><mat-icon>assessment</mat-icon>Summary</a>

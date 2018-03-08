@@ -1,12 +1,12 @@
 
 /*Changes main background color to a darker, almost navy, blue  */
 td-layout-nav {
-    background-color: #78909C;
+    background-color: #B0BEC5;
 }
 
 /*Changes the nav-sidebar popout thing to match the navbar's color*/
 [_nghost-c2] {
-    background-color: #78909C;
+    background-color: #B0BEC5;
     border-radius: 20px;
 }
 
