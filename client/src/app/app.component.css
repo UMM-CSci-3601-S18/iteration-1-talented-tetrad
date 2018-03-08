@@ -6,7 +6,7 @@ td-layout-nav {
 
 /*Changes the nav-sidebar popout thing to match the navbar's color*/
 [_nghost-c2] {
-    background-color: #7E57C2;
+    background-color: #78909C;
     border-radius: 20px;
 }
 
