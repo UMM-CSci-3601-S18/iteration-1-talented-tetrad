@@ -39,7 +39,7 @@ describe('HomeComponent', () => {
     it(`should have a title in a mat card`, () => {
         homeFixture.detectChanges();
         const titleCard: HTMLElement = debugElement.query(By.css('mat-card-title')).nativeElement;
-        expect(titleCard.textContent).toContain('Welcome to the Sunshine App');
+        expect(titleCard.textContent).toContain('Welcome to Mood Flow');
     });
 
     it('should have a button that says Select an emoji', () => {
