@@ -17,24 +17,37 @@ import {SummaryComponentDialog} from "./summary.component-dialog";
 export class SummaryListComponent implements OnInit {
     startDate;
     endDate;
+    getDate;
     private setMood: string;
 
     private morning = 0;
     private afternoon = 0;
     private night = 0;
-    /*
-        private twoAm = 0;
-        private fourAm = 0;
-        private sixAm = 0;
-        private eightAm = 0;
-        private tenAm = 0;
-        private twelvePm = 0;
-        private twoPm = 0;
-        private fourPm = 0;
-        private sixPm = 0;
-        private eightPm = 0;
-        private tenPm = 0;
-        private twelveAm = 0;*/
+
+    private oneAm = 0;
+    private twoAm = 0;
+    private threeAm = 0;
+    private fourAm = 0;
+    private fiveAm = 0;
+    private sixAm = 0;
+    private sevenAm = 0;
+    private eightAm = 0;
+    private nineAm = 0;
+    private tenAm = 0;
+    private elevenAm = 0;
+    private twelvePm = 0;
+    private onePm = 0;
+    private twoPm = 0;
+    private threePm = 0;
+    private fourPm = 0;
+    private fivePm = 0;
+    private sixPm = 0;
+    private sevenPm = 0;
+    private eightPm = 0;
+    private ninePm = 0;
+    private tenPm = 0;
+    private elevenPm = 0;
+    private twelveAm = 0;
     // These are public so that tests can reference them (.spec.ts)
     public summarys: Summary[];
     public filteredSummarys: Summary[];
@@ -67,7 +80,6 @@ export class SummaryListComponent implements OnInit {
                 return !searchMood || summary.mood.toLowerCase().indexOf(searchMood) !== -1;
             });
         }
-
 
         return this.filteredSummarys;
     }
@@ -121,64 +133,178 @@ export class SummaryListComponent implements OnInit {
     }
 
     aveTime(mood: string, time: number) {
+        this.getDate = new Date(time);
+        var hour = this.getDate.getHours();
+
         if (mood != this.setMood) {
             this.resetNums()
             this.setMood = mood;
         }
 
-        if(mood != this.setMood){
-            this.resetNums()
-            this.setMood = mood;
-        }
+        /*  if(mood != this.setMood){
+              this.resetNums()
+              this.setMood = mood;
+          }
 
-        if(time >= 600 && time <= 1100){
-            this.morning++;
+          if(time >= 600 && time <= 1100){
+              this.morning++;
+          }
+          else if(time >= 1101 && time <= 1600){
+              this.afternoon++;
+          }
+          else{
+              this.night++;
+          }*/
+        if(hour >= 0 && hour < 1) {
+            this.twelveAm++;
         }
-        else if(time >= 1101 && time <= 1600){
-            this.afternoon++;
+        else if (hour > 1 && hour < 2 ) {
+            this.oneAm++;
         }
-        else{
-            this.night++;
+        else if (hour >= 2 && hour < 3) {
+            this.twoAm++;
+        }
+        else if (hour >= 3 && hour < 4) {
+            this.threeAm++;
+        }
+        else if (hour >= 4 && hour < 5) {
+            this.fourAm++;
+        }
+        else if (hour >= 5 && hour < 6) {
+            this.fiveAm++;
+        }
+        else if (hour >= 6 && hour < 7) {
+            this.sixAm++;
+        }
+        else if (hour >= 7 && hour < 8) {
+            this.sevenAm++;
+        }
+        else if (hour >= 8 && hour < 9) {
+            this.eightAm++;
+        }
+        else if (hour >= 9 && hour < 10) {
+            this.nineAm++;
+        }
+        else if (hour >= 10 && hour < 11) {
+            this.tenAm++;
+        }
+        else if (hour >= 11 && hour < 12) {
+            this.elevenAm++;
+        }
+        else if (hour >= 12 && hour < 13) {
+            this.twelvePm++;
+        }
+        else if (hour >= 13 && hour < 14) {
+            this.onePm++;
+        }
+        else if (hour >= 14 && hour < 15) {
+            this.twoPm++;
+        }
+        else if (hour >= 15 && hour < 16) {
+            this.threePm++;
+        }
+        else if (hour >= 16 && hour < 17) {
+            this.fourPm++;
+        }
+        else if (hour >= 17 && hour < 18) {
+            this.fivePm++;
+        }
+        else if (hour >= 18 && hour < 19) {
+            this.sixPm++;
+        }
+        else if (hour >= 19 && hour < 20) {
+            this.sevenPm++;
+        }
+        else if (hour >= 20 && hour < 21) {
+            this.eightPm++;
+        }
+        else if (hour >= 21 && hour < 22) {
+            this.ninePm++;
+        }
+        else if (hour >= 22 && hour < 23) {
+            this.tenPm++;
+        }
+        else if (hour >= 23 && hour < 24) {
+            this.elevenPm++;
         }
     }
 
-    /*   if (time >= 101 && time <= 300) {
-           this.twoAm++;
-       }
-       else if (time >= 301 && time <= 500) {
-           this.fourAm++;
-       }
-       else if (time >= 501 && time <= 700) {
-           this.sixAm++;
-       }
-       else if (time >= 701 && time <= 900) {
-           this.sixAm++;
-       }
-       else if (time >= 901 && time <= 1100) {
-           this.eightAm++;
-       }
-       else if (time >= 1101 && time <= 1300) {
-           this.tenAm++;
-       }
-       else if (time >= 1301 && time <= 1500) {
-           this.twelvePm++;
-       }
-       else if (time >= 1501 && time <= 1700) {
-           this.twoPm++;
-       }
-       else if (time >= 1701 && time <= 1900) {
-           this.sixPm++;
-       }
-       else if (time >= 1901 && time <= 2100) {
-           this.eightPm++;
-       }
-       else if (time >= 2101 && time <= 2300) {
-           this.tenPm++;
-       }
-       else if (time >= 2301 && time <= 100) {
-           this.twelveAm++;
-       }
-   }*/
+    returnMoreData(mood:string, time: string): string{
+        if(time == "twelveAm" && this.twelveAm != 0){
+            return "You felt " + mood + " " + this.twelveAm + " times at 12 am.";
+        }
+        else if(time == "oneAm" && this.oneAm != 0){
+            return "You felt " + mood + " " + this.oneAm + " times at 1 am.";
+        }
+        else if(time == "twoAm" && this.twoAm != 0){
+            return "You felt " + mood + " " + this.twoAm + " times at 2 am.";
+        }
+        else if(time == "threeAm" && this.threeAm != 0){
+            return "You felt " + mood + " " + this.threeAm + " times at 3 am.";
+        }
+        else if(time == "fourAm" && this.fourAm != 0){
+            return "You felt " + mood + " " + this.fourAm + " times at 4 am.";
+        }
+        else if(time == "fiveAm" && this.fiveAm != 0){
+            return "You felt " + mood + " " + this.fiveAm + " times at 5 am.";
+        }
+        else if(time == "sixAm" && this.sixAm != 0){
+            return "You felt " + mood + " " + this.sixAm + " times at 6 am.";
+        }
+        else if(time == "sevenAm" && this.sevenAm != 0){
+            return "You felt " + mood + " " + this.sevenAm + " times at 7 am.";
+        }
+        else if(time == "eightAm" && this.eightAm != 0){
+            return "You felt " + mood + " " + this.eightAm + " times at 8 am.";
+        }
+        else if(time == "nineAm" && this.nineAm != 0){
+            return "You felt " + mood + " " + this.nineAm + " times at 9 am.";
+        }
+        else if(time == "tenAm" && this.tenAm != 0){
+            return "You felt " + mood + " " + this.tenAm + " times at 10 am.";
+        }
+        else if(time == "elevenAm" && this.elevenAm != 0){
+            return "You felt " + mood + " " + this.elevenAm + " times at 11 am.";
+        }
+        else if(time == "twelvePm" && this.twelvePm != 0){
+            return "You felt " + mood + " " + this.twelvePm + " times at 12 pm.";
+        }
+        else if(time == "onePm" && this.onePm != 0){
+            return "You felt " + mood + " " + this.onePm + " times at 1 pm.";
+        }
+        else if(time == "twoPm" && this.twoPm != 0){
+            return "You felt " + mood + " " + this.twoPm + " times at 2 pm.";
+        }
+        else if(time == "threePm" && this.threePm != 0){
+            return "You felt " + mood + " " + this.threePm + " times at 3 pm.";
+        }
+        else if(time == "fourPm" && this.fourPm != 0){
+            return "You felt " + mood + " " + this.fourPm + " times at 4 pm.";
+        }
+        else if(time == "fivePm" && this.fivePm != 0){
+            return "You felt " + mood + " " + this.fivePm + " times at 5 pm.";
+        }
+        else if(time == "sixPm" && this.sixPm != 0){
+            return "You felt " + mood + " " + this.sixPm + " times at 6 pm.";
+        }
+        else if(time == "sevenPm" && this.sevenPm != 0){
+            return "You felt " + mood + " " + this.sevenPm + " times at 7 pm.";
+        }
+        else if(time == "eightPm" && this.eightPm != 0){
+            return "You felt " + mood + " " + this.eightPm + " times at 8 pm.";
+        }
+        else if(time == "ninePm" && this.ninePm != 0){
+            return "You felt " + mood + " " + this.ninePm + " times at 9 pm.";
+        }
+        else if(time == "tenPm" && this.tenPm != 0){
+            return "You felt " + mood + " " + this.tenPm + " times at 10 pm.";
+        }
+        else if(time == "elevenPm" && this.elevenPm != 0){
+            return "You felt " + mood + " " + this.elevenPm + " times at 11 pm.";
+        }
+
+        return "";
+    }
 
     returnTime(mood: string): string{
         if(mood == ""){
