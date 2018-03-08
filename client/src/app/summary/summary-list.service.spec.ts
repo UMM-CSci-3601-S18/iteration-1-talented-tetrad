@@ -1,44 +1,42 @@
-/*
 import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
 import {TestBed} from '@angular/core/testing';
 import {HttpClient} from '@angular/common/http';
 
-import {User} from './user';
-import {UserListService} from './user-list.service';
+import {Summary} from './summary';
+import {SummaryListService} from './summary-list.service';
 
-describe('User list service: ', () => {
-    // A small collection of test users
-    const testUsers: User[] = [
+describe('Summary list service: ', () => {
+    // A small collection of test summarys
+    const testSummarys: Summary[] = [
         {
-            _id: 'chris_id',
-            name: 'Chris',
-            age: 25,
-            company: 'UMM',
-            email: 'chris@this.that'
+            _id: "5aa09a0f14bb3a882d54decc",
+            mood: "down",
+            date: "Mon Mar 21 2018 21:16:00 GMT-0600 (CST)"
         },
         {
-            _id: 'pat_id',
-            name: 'Pat',
-            age: 37,
-            company: 'IBM',
-            email: 'pat@something.com'
+            _id: "5aa09a0f14bb3a882d54decd",
+            mood: "radiant",
+            date: "Wed Mar 12 2018 07:46:00 GMT-0600 (CST)"
         },
         {
-            _id: 'jamie_id',
-            name: 'Jamie',
-            age: 37,
-            company: 'Frogs, Inc.',
-            email: 'jamie@frogs.com'
-        }
+            _id: "5aa09a0f14bb3a882d54dece",
+            mood: "meh",
+            date: "Tue Mar 10 2018 09:57:00 GMT-0600 (CST)"
+        },
+        {
+            _id: "5aa09a0f14bb3a882d54decf",
+            mood: "down",
+            date: "Tue Mar 08 2018 14:44:00 GMT-0600 (CST)"
+        },
     ];
-    const mUsers: User[] = testUsers.filter(user =>
-        user.company.toLowerCase().indexOf('m') !== -1
+    const mSummarys: Summary[] = testSummarys.filter(summary =>
+        summary.mood.toLowerCase().indexOf('m') !== -1
     );
 
-    // We will need some url information from the userListService to meaningfully test company filtering;
+    // We will need some url information from the summaryListService to meaningfully test mood filtering;
     // https://stackoverflow.com/questions/35987055/how-to-write-unit-testing-for-angular-2-typescript-for-private-methods-with-ja
-    let userListService: UserListService;
-    let currentlyImpossibleToGenerateSearchUserUrl: string;
+    let summaryListService: SummaryListService;
+    let currentlyImpossibleToGenerateSearchSummaryUrl: string;
 
     // These are used to mock the HTTP requests so that we (a) don't have to
     // have the server running and (b) we can check exactly which HTTP
@@ -55,7 +53,7 @@ describe('User list service: ', () => {
         httpTestingController = TestBed.get(HttpTestingController);
         // Construct an instance of the service with the mock
         // HTTP client.
-        userListService = new UserListService(httpClient);
+        summaryListService = new SummaryListService(httpClient);
     });
 
     afterEach(() => {
@@ -63,91 +61,56 @@ describe('User list service: ', () => {
         httpTestingController.verify();
     });
 
-    it('getUsers() calls api/users', () => {
-        // Assert that the users we get from this call to getUsers()
-        // should be our set of test users. Because we're subscribing
-        // to the result of getUsers(), this won't actually get
+    it('getSummarys() calls api/summarys', () => {
+        // Assert that the summarys we get from this call to getSummarys()
+        // should be our set of test summarys. Because we're subscribing
+        // to the result of getSummarys(), this won't actually get
         // checked until the mocked HTTP request "returns" a response.
-        // This happens when we call req.flush(testUsers) a few lines
+        // This happens when we call req.flush(testSummarys) a few lines
         // down.
-        userListService.getUsers().subscribe(
-            users => expect(users).toBe(testUsers)
+        summaryListService.getSummarys().subscribe(
+            summarys => expect(summarys).toBe(testSummarys)
         );
 
         // Specify that (exactly) one request will be made to the specified URL.
-        const req = httpTestingController.expectOne(userListService.baseUrl);
+        const req = httpTestingController.expectOne(summaryListService.baseUrl);
         // Check that the request made to that URL was a GET request.
         expect(req.request.method).toEqual('GET');
         // Specify the content of the response to that request. This
         // triggers the subscribe above, which leads to that check
         // actually being performed.
-        req.flush(testUsers);
+        req.flush(testSummarys);
     });
 
-    it('getUsers(userCompany) adds appropriate param string to called URL', () => {
-        userListService.getUsers('m').subscribe(
-            users => expect(users).toEqual(mUsers)
+    it('getSummarys(summaryMood) adds appropriate param string to called URL', () => {
+        summaryListService.getSummarys('m').subscribe(
+            summarys => expect(summarys).toEqual(mSummarys)
         );
 
-        const req = httpTestingController.expectOne(userListService.baseUrl + '?company=m&');
+        const req = httpTestingController.expectOne(summaryListService.baseUrl + '?mood=m&');
         expect(req.request.method).toEqual('GET');
-        req.flush(mUsers);
+        req.flush(mSummarys);
     });
 
-    it('filterByCompany(userCompany) deals appropriately with a URL that already had a company', () => {
-        currentlyImpossibleToGenerateSearchUserUrl = userListService.baseUrl + '?company=f&something=k&';
-        userListService['userUrl'] = currentlyImpossibleToGenerateSearchUserUrl;
-        userListService.filterByCompany('m');
-        expect(userListService['userUrl']).toEqual(userListService.baseUrl + '?something=k&company=m&');
+    it('filterByMood(summaryMood) deals appropriately with a URL that already had a mood', () => {
+        currentlyImpossibleToGenerateSearchSummaryUrl = summaryListService.baseUrl + '?mood=f&something=k&';
+        summaryListService['summaryUrl'] = currentlyImpossibleToGenerateSearchSummaryUrl;
+        summaryListService.filterByMood('m');
+        expect(summaryListService['summaryUrl']).toEqual(summaryListService.baseUrl + '?something=k&mood=m&');
     });
 
-    it('filterByCompany(userCompany) deals appropriately with a URL that already had some filtering, but no company', () => {
-        currentlyImpossibleToGenerateSearchUserUrl = userListService.baseUrl + '?something=k&';
-        userListService['userUrl'] = currentlyImpossibleToGenerateSearchUserUrl;
-        userListService.filterByCompany('m');
-        expect(userListService['userUrl']).toEqual(userListService.baseUrl + '?something=k&company=m&');
+    it('filterByMood(summaryMood) deals appropriately with a URL that already had some filtering, but no mood', () => {
+        currentlyImpossibleToGenerateSearchSummaryUrl = summaryListService.baseUrl + '?something=k&';
+        summaryListService['summaryUrl'] = currentlyImpossibleToGenerateSearchSummaryUrl;
+        summaryListService.filterByMood('m');
+        expect(summaryListService['summaryUrl']).toEqual(summaryListService.baseUrl + '?something=k&mood=m&');
     });
 
-    it('filterByCompany(userCompany) deals appropriately with a URL has the keyword company, but nothing after the =', () => {
-        currentlyImpossibleToGenerateSearchUserUrl = userListService.baseUrl + '?company=&';
-        userListService['userUrl'] = currentlyImpossibleToGenerateSearchUserUrl;
-        userListService.filterByCompany('');
-        expect(userListService['userUrl']).toEqual(userListService.baseUrl + '');
+    it('filterByMood(summaryMood) deals appropriately with a URL has the keyword mood, but nothing after the =', () => {
+        currentlyImpossibleToGenerateSearchSummaryUrl = summaryListService.baseUrl + '?mood=&';
+        summaryListService['summaryUrl'] = currentlyImpossibleToGenerateSearchSummaryUrl;
+        summaryListService.filterByMood('');
+        expect(summaryListService['summaryUrl']).toEqual(summaryListService.baseUrl + '');
     });
 
-    it('getUserById() calls api/users/id', () => {
-        const targetUser: User = testUsers[1];
-        const targetId: string = targetUser._id;
-        userListService.getUserById(targetId).subscribe(
-            user => expect(user).toBe(targetUser)
-        );
-
-        const expectedUrl: string = userListService.baseUrl + '/' + targetId;
-        const req = httpTestingController.expectOne(expectedUrl);
-        expect(req.request.method).toEqual('GET');
-        req.flush(targetUser);
-    });
-
-    it('adding a user calls api/users/new', () => {
-        const jesse_id = { '$oid': 'jesse_id' };
-        const newUser: User = {
-            _id: '',
-            name: 'Jesse',
-            age: 72,
-            company: 'Smithsonian',
-            email: 'jesse@stuff.com'
-        };
-
-        userListService.addNewUser(newUser).subscribe(
-            id => {
-                expect(id).toBe(jesse_id);
-            }
-        );
-
-        const expectedUrl: string = userListService.baseUrl + '/new';
-        const req = httpTestingController.expectOne(expectedUrl);
-        expect(req.request.method).toEqual('POST');
-        req.flush(jesse_id);
-    });
 });
-*/
