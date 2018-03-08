@@ -3,7 +3,6 @@ import {MatDialog, MAT_DIALOG_DATA, MatSnackBar} from '@angular/material';
 import {Emotion} from'./emotion';
 import {AddEmotionComponent} from "./home.component-dialog";
 import {EmotionListService} from "./emotion-list.service";
-import {openedSnackBar} from "./global.vars";
 
 /**
  * @title Injecting data when opening a dialog
@@ -15,6 +14,10 @@ import {openedSnackBar} from "./global.vars";
 
 })
 export class HomeComponent implements OnInit{
+
+
+    // Use to test exporting properly
+    public testingExport = 'Hello World!';
 
     // The ID of the
     private highlightedID: {'$oid': string} = { '$oid': '' };
@@ -65,10 +68,6 @@ export class HomeComponent implements OnInit{
 
     ngOnInit()
     {
-        console.log(openedSnackBar);                 //this   |
-        // THIS WORKS DESPITE THE ERROR ----------------------v
-        //if(openedSnackBar == false) {this.openSnackBar(); openedSnackBar = true;}
-        //This had to be commented out due to travis not appreciating this.. :(
         this.openSnackBar();
     }
 
