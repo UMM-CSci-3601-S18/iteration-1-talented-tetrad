@@ -52,15 +52,18 @@ export class HomeComponent implements OnInit{
         });
     }
 
-    openSnackBar(){
+    /* this is commented out because it breaks our e2e tests. we are not sure how to
+    * test this as of yet and since it was not a story we sold, we're leaving it commented
+    * out until we figure out what to do with it. */
+   /* openSnackBar(){
         this.snackBar.open("Make sure to log an emotion!", "Ok", {
             duration: 200000,
         });
-    }
+    }*/
 
-    ngOnInit()
-    {
+    ngOnInit(){}
+    /*{
         this.openSnackBar();
-    }
+    }*/
 
 }
