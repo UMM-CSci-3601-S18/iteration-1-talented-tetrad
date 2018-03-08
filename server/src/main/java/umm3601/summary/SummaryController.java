@@ -34,7 +34,7 @@ public class SummaryController {
     public SummaryController(MongoDatabase database) {
         gson = new Gson();
         this.database = database;
-        summaryCollection = database.getCollection("summarys");
+        summaryCollection = database.getCollection("emotions");
     }
 
 
