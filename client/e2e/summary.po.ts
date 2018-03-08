@@ -20,20 +20,20 @@ export class SummaryPage {
         return browser.executeScript(setStyle, element(byObject).getWebElement(), 'color: red; background-color: yellow;');
     }
 
-    selectEmotionDropdown(): promise.Promise<boolean> {
-        this.highlightElement(by.id('summaryEmotion'));
-        return element(by.id('summaryEmotion')).isPresent();
+    selectMoodDropdown(): promise.Promise<boolean> {
+        this.highlightElement(by.id('summaryMood'));
+        return element(by.id('summaryMood')).isPresent();
     }
 
-    clickEmotionDropdown(): promise.Promise<void> {
-        this.highlightElement(by.id('summaryEmotion'));
-        return element(by.id('summaryEmotion')).click();
+    clickMoodDropdown(): promise.Promise<void> {
+        this.highlightElement(by.id('summaryMood'));
+        return element(by.id('summaryMood')).click();
     }
 
     selectStartDate(): promise.Promise<boolean> {
         this.highlightElement(by.id('startDate'));
         return element(by.id('startDate')).isPresent();
-    }dDatEne
+    }
 
     clickStartDate(): promise.Promise<void> {
         this.highlightElement(by.id('startDate'));
@@ -50,7 +50,7 @@ export class SummaryPage {
         return element(by.id('endDate')).click();
     }
 
-    selectMoreInfoButton(): promise.Promise<boolean> {
+   /* selectMoreInfoButton(): promise.Promise<boolean> {
         this.highlightElement(by.id('moreInfoButton'));
         return element(by.id('moreInfoButton')).isPresent();
     }
@@ -58,5 +58,5 @@ export class SummaryPage {
     clickMoreInfoButton(): promise.Promise<void> {
         this.highlightElement(by.id('moreInfoButton'));
         return element(by.id('moreInfoButton')).click();
-    }
+    }*/
 }

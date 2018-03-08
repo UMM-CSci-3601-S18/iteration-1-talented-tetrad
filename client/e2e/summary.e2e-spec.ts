@@ -33,64 +33,64 @@ describe('angular-spark-lab', () => {
     // make sure there is an emotions dropdown button
     it('should have an emotion dropdown ', () => {
         SummaryPage.navigateTo();
-        expect(page.selectEmotionDropdown()).toBeTruthy();
+        expect(page.selectMoodDropdown()).toBeTruthy();
     });
 
     // make sure it clicks emotion dropdown
     it('should click the emotion dropdown ', () => {
         SummaryPage.navigateTo();
-        page.clickEmotionDropdown();
+        page.clickMoodDropdown();
     });
 
     // makes sure it clicks on the radiant labeled emotion dropdown
     it('Should click on radiant dropdown ', () => {
         SummaryPage.navigateTo();
-        page.clickEmotionDropdown();
+        page.clickMoodDropdown();
         element(by.id('dropdownRadiant')).click();
     });
 
     // makes sure it clicks on the happy labeled emotion dropdown
     it('Should click on happy dropdown ', () => {
         SummaryPage.navigateTo();
-        page.clickEmotionDropdown();
+        page.clickMoodDropdown();
         element(by.id('dropdownHappy')).click();
     });
 
     // makes sure it clicks on the meh labeled emotion dropdown
     it('Should click on meh dropdown ', () => {
         SummaryPage.navigateTo();
-        page.clickEmotionDropdown();
+        page.clickMoodDropdown();
         element(by.id('dropdownMeh')).click();
     });
 
     // makes sure it clicks on the down labeled emotion dropdown
     it('Should click on down dropdown ', () => {
         SummaryPage.navigateTo();
-        page.clickEmotionDropdown();
+        page.clickMoodDropdown();
         element(by.id('dropdownDown')).click();
     });
 
     // makes sure it clicks on the sad labeled emotion dropdown
     it('Should click on sad dropdown ', () => {
         SummaryPage.navigateTo();
-        page.clickEmotionDropdown();
+        page.clickMoodDropdown();
         element(by.id('dropdownSad')).click();
     });
 
     // makes sure it clicks on the anxious labeled emotion dropdown
     it('Should click on anxious dropdown ', () => {
         SummaryPage.navigateTo();
-        page.clickEmotionDropdown();
+        page.clickMoodDropdown();
         element(by.id('dropdownAnxious')).click();
     });
 
     // makes sure it clicks on the radiant labeled emotion dropdown and then all emotions dropdown
     it('Should click on radiant dropdown and then do process again with the all emotions dropdown  ', () => {
         SummaryPage.navigateTo();
-        page.clickEmotionDropdown();
+        page.clickMoodDropdown();
         element(by.id('dropdownRadiant')).click();
-        page.clickEmotionDropdown();
-        element(by.id('dropdownAllEmotions')).click();
+        page.clickMoodDropdown();
+        element(by.id('dropdownAllMoods')).click();
     });
 
     // makes sure there is a start date text field
@@ -119,7 +119,7 @@ describe('angular-spark-lab', () => {
         element(by.id('endDate')).click();
     });
 
-    // makes sure there is a more info button
+   /* // makes sure there is a more info button
     it('should be a more info button ', () => {
         SummaryPage.navigateTo();
         expect(page.selectMoreInfoButton()).toBeTruthy();
@@ -129,6 +129,6 @@ describe('angular-spark-lab', () => {
     it('should click on the more info button ', () => {
         SummaryPage.navigateTo();
         page.clickMoreInfoButton();
-    });
+    });*/
 
 });

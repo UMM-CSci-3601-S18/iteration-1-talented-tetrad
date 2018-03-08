@@ -87,7 +87,7 @@ describe('Summary list', () => {
 
     it('summary list filters by mood', () => {
         expect(summaryList.filteredSummarys.length).toBe(4);
-        summaryList.summaryEmotion = 'dow';
+        summaryList.summaryMood = 'dow';
         summaryList.refreshSummarys().subscribe(() => {
             expect(summaryList.filteredSummarys.length).toBe(2);
         });
@@ -95,7 +95,7 @@ describe('Summary list', () => {
 
     it('summary list filters by mood', () => {
         expect(summaryList.filteredSummarys.length).toBe(4);
-        summaryList.summaryEmotion = 'rad';
+        summaryList.summaryMood = 'rad';
         summaryList.refreshSummarys().subscribe(() => {
             expect(summaryList.filteredSummarys.length).toBe(1);
         });
@@ -103,7 +103,7 @@ describe('Summary list', () => {
 
     it('summary list filters by mood', () => {
         expect(summaryList.filteredSummarys.length).toBe(4);
-        summaryList.summaryEmotion = 'm';
+        summaryList.summaryMood = 'm';
         summaryList.refreshSummarys().subscribe(() => {
             expect(summaryList.filteredSummarys.length).toBe(1);
         });
